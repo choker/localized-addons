@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Options - Nimbus Screen Capture</title>
+</head>
+<link rel="stylesheet" href="css/tipsy.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection"/>
+<body>
+
+<div id="background" style="display: block;"></div>
+<div id="wrapper" class="settings">
+<h1 data-l10n-id="optionsTitle">Screenshot Settings</h1>
+
+<div class="container">
+    <div id="format-setting">
+        <div class="switch">
+            <h4><span data-l10n-id="optionsFormat">Image format</span>:</h4>
+            <button class="jpeg" data-format="jpeg"><span class="mark"></span><i class="icon"></i>.JPEG</button>
+            <button class="png" data-format="png"><span class="mark"></span><i class="icon"></i>.PNG</button>
+        </div>
+    </div>
+
+    <div id="image-quality" class="section">
+        <h4><span data-l10n-id="optionsQuality">Image quality</span>:</h4>
+        <div>
+            <input id="quality" class="range" type="range" min="10" max="100" step="1" value="90">
+            <label id="quality-value" class="range-value" for="quality"><span class="value">90</span> %</label>
+        </div>
+    </div>
+
+    <!--#button-setting-->
+    <div id="button-position" class="section">
+        <h4><span data-l10n-id="optionsIcon">Icon Settings</span>:</h4>
+        <label><input type="checkbox" name="main"> <span data-l10n-id="optionsIconMainBar">Display icon on Main bar</span></label><br>
+        <!--<label><input type="checkbox" name="addon"> <span data-l10n-id="optionsIconAddonBar">Display icon on Addons bar</span></label><br>-->
+    </div>
+
+    <div id="save-setting" class="section">
+        <h4><span data-l10n-id="optionsSave">Save Settings</span>:</h4>
+        <div data-l10n-id="optionsNameTpl">Filename Template:</div>
+        <input id='filenamepattern' type="text" value=""/>
+        <div><span data-l10n-id="optionsCanUse">You can use</span>: {domain}, {url}, {title}, {date}, {time}</div>
+    </div>
+
+    <div id="quick-capture" class="section">
+        <h4><span data-l10n-id="optionsQuickCaptureTitle">Quick capture</span>:</h4>
+        <div id="save-crop-position" class="flag">
+            <input id="savecropposition" type="checkbox" name="shadow" >
+            <label for="savecropposition" data-l10n-id="optionsSaveCropPosition">Save crop position</label>
+        </div>
+        <div id="enable-quick-capture" class="flag">
+            <input id="enablequickcapture" type="checkbox" name="shadow" >
+            <label for="enablequickcapture" data-l10n-id="optionsQuickCaptureEnable">Enable quick capture</label>
+        </div>
+        <div style="position: relative">
+            <div class="switch" id="typeCapture">
+                <button class="visible active" data-type="visible"><span class="mark"></span><i class="icon"></i></button>
+                <button class="area" data-type="area"><span class="mark"></span><i class="icon"></i></button>
+                <button class="entire" data-type="entire"><span class="mark"></span><i class="icon"></i></button>
+                <button class="blank" data-type="blank"><span class="mark"></span><i class="icon"></i></button>
+            </div>
+            <div class="switch" id="enableEdit">
+                <button class="edit active" data-type="edit"><span class="mark"></span><i class="icon"></i></button>
+                <button class="done" data-type="done"><span class="mark"></span><i class="icon"></i></button>
+                <button class="save" data-type="save"><span class="mark"></span><i class="icon"></i></button>
+                <button class="copy" data-type="copy"><span class="mark"></span><i class="icon"></i></button>
+            </div>
+            <div class="blocker"></div>
+        </div>
+    </div>
+
+    <div id="shortcut-setting" class="section">
+        <h4><span data-l10n-id="optionsShortcut">Shortcut Settings</span>:</h4>
+        <div id="enable-hotkey" class="flag">
+            <input id="enablekey" type="checkbox" name="hotkeys" checked >
+            <label for="enablekey" data-l10n-id="optionsEnableKey">Enable shortcuts</label>
+        </div>
+        <div id="hot-key-setting">
+            		<span>
+						<label data-l10n-id="popupBtnVisible">Visible part of page</label>
+						<span>Ctrl+Shift+
+							<select id="visible">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="a">A</option>
+                                <option value="b">B</option>
+                                <option value="c">C</option>
+                                <option value="d">D</option>
+                                <option value="e">E</option>
+                                <option value="f">F</option>
+                                <option value="g">G</option>
+                                <option value="h">H</option>
+                                <option value="i">I</option>
+                                <option value="j">J</option>
+                                <option value="k">K</option>
+                                <option value="l">L</option>
+                                <option value="m">M</option>
+                                <option value="n">N</option>
+                                <option value="o">O</option>
+                                <option value="p">P</option>
+                                <option value="q">Q</option>
+                                <option value="r">R</option>
+                                <option value="s">S</option>
+                                <option value="t">T</option>
+                                <option value="u">U</option>
+                                <option value="v">V</option>
+                                <option value="w">W</option>
+                                <option value="x">X</option>
+                                <option value="y">Y</option>
+                                <option value="z">Z</option>
+                            </select>
+						</span>
+					</span>
+
+            <div class="clr"></div>
+					<span>
+						<label data-l10n-id="popupBtnArea">Selected area</label>
+						<span>Ctrl+Shift+
+							<select id="selected">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="a">A</option>
+                                <option value="b">B</option>
+                                <option value="c">C</option>
+                                <option value="d">D</option>
+                                <option value="e">E</option>
+                                <option value="f">F</option>
+                                <option value="g">G</option>
+                                <option value="h">H</option>
+                                <option value="i">I</option>
+                                <option value="j">J</option>
+                                <option value="k">K</option>
+                                <option value="l">L</option>
+                                <option value="m">M</option>
+                                <option value="n">N</option>
+                                <option value="o">O</option>
+                                <option value="p">P</option>
+                                <option value="q">Q</option>
+                                <option value="r">R</option>
+                                <option value="s">S</option>
+                                <option value="t">T</option>
+                                <option value="u">U</option>
+                                <option value="v">V</option>
+                                <option value="w">W</option>
+                                <option value="x">X</option>
+                                <option value="y">Y</option>
+                                <option value="z">Z</option>
+                            </select>
+						</span>
+					</span>
+
+            <div class="clr"></div>
+					<span>
+						<label data-l10n-id="popupBtnEntire">Entire page</label>
+						<span>Ctrl+Shift+
+							<select id="entire">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="a">A</option>
+                                <option value="b">B</option>
+                                <option value="c">C</option>
+                                <option value="d">D</option>
+                                <option value="e">E</option>
+                                <option value="f">F</option>
+                                <option value="g">G</option>
+                                <option value="h">H</option>
+                                <option value="i">I</option>
+                                <option value="j">J</option>
+                                <option value="k">K</option>
+                                <option value="l">L</option>
+                                <option value="m">M</option>
+                                <option value="n">N</option>
+                                <option value="o">O</option>
+                                <option value="p">P</option>
+                                <option value="q">Q</option>
+                                <option value="r">R</option>
+                                <option value="s">S</option>
+                                <option value="t">T</option>
+                                <option value="u">U</option>
+                                <option value="v">V</option>
+                                <option value="w">W</option>
+                                <option value="x">X</option>
+                                <option value="y">Y</option>
+                                <option value="z">Z</option>
+                            </select>
+						</span>
+					</span>
+
+            <div class="clr"></div>
+            <div id='mask'></div>
+        </div>
+        <div class="clr"></div>
+    </div>
+    <!--#shortcut-setting-->
+    <!--<button id="save_settings" class="save_settings"><i class="icon"></i>Save</button>-->
+<div id="info"><b data-l10n-id="appName">Nimbus Screen Capture</b> <span data-l10n-id="optionsFrom">from</span> <a href="http://nimbus.everhelper.me" target="_blank">Everhelper</a></div>
+</div>
+<!--.container -->
+</div>
+<!--#wrapper -->
+
+
+</body>
+</html>

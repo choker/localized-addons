@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-type">
+    <title>ScreenCapture - Nimbus Screen Capture</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection"/>
+    <style type="text/css">
+        body {
+            padding:0 10px;
+            background-color: #FFF !important;
+            overflow: hidden;
+            height: 224px;
+            width: 210px;
+        }
+    </style>
+</head>
+
+<body>
+<h3 data-l10n-id="popupTitle">CAPTURE OPTIONS</h3>
+<button class="main_btn" id="visible" tabindex="-1"><i class="visible"></i><span data-l10n-id="popupBtnVisible">Visible part of page</span></button>
+<button class="main_btn" id="area" tabindex="-1"><i class="selected"></i><span data-l10n-id="popupBtnArea">Selected area</span></button>
+<button class="main_btn" id="entire" tabindex="-1"><i class="entire"></i><span data-l10n-id="popupBtnEntire">Entire page</span></button>
+<!-- <button class="main_btn" id="window" tabindex="-1"><i class="browser"></i><span>Browser window</span></button> -->
+ <button class="main_btn" id="blank" tabindex="-1"><i class="blank"></i><span data-l10n-id="popupBtnBlank">Blank Screen</span></button>
+ <button class="main_btn" id="android" tabindex="-1"><i class="android"></i><span data-l10n-id="popupBtnAndroid">Android Version</span></button>
+<span class="enable_edit settings_btn">
+    <!--<input id="enableEdit" name="enable-edit" type="checkbox" value="edit">-->
+    <!--<label for="enableEdit" data-l10n-id="popupBtnEnableEdit">enable edit</label>-->
+
+    <select name="save" id="doneType">
+        <option value="edit" selected data-l10n-id="popupBtnEnableEdit">enable edit</option>
+        <option value="done" data-l10n-id="popupBtnEnableSave">save as</option>
+        <option value="save" data-l10n-id="popupBtnEnableDownload">download</option>
+        <option value="copy" data-l10n-id="popupBtnEnableCopy">copy to clipboard</option>
+    </select>
+</span>
+<button class="settings_btn" id="options" tabindex="-1"><i class="options"></i><span data-l10n-id="popupBtnOptions">Options</span></button>
+<div class="clr"></div>
+</body>
+</html>

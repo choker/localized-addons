@@ -1,0 +1,133 @@
+{
+ "abort_on_missing": false, 
+ "check_memory": false, 
+ "enable_e10s": false, 
+ "is-sdk-bundled": false, 
+ "jetpackID": "nimbusscreencaptureff@everhelper.me", 
+ "loader": "addon-sdk/lib/sdk/loader/cuddlefish.js", 
+ "main": "main", 
+ "mainPath": "nimbus-screen-capture/main", 
+ "manifest": {
+  "nimbus-screen-capture/download": {
+   "docsSHA256": null, 
+   "jsSHA256": "df7023fb1ab6c1cf99041e8928593d93a9aa51749da9c166d67cba4578347d0c", 
+   "moduleName": "download", 
+   "packageName": "nimbus-screen-capture", 
+   "requirements": {
+    "chrome": "chrome"
+   }, 
+   "sectionName": "lib"
+  }, 
+  "nimbus-screen-capture/listen": {
+   "docsSHA256": null, 
+   "jsSHA256": "74057caf6a837e6c8a3e8e73762b1bc08e69e6e087bee5401580a9249a34701c", 
+   "moduleName": "listen", 
+   "packageName": "nimbus-screen-capture", 
+   "requirements": {
+    "unload+": "nimbus-screen-capture/unload+"
+   }, 
+   "sectionName": "lib"
+  }, 
+  "nimbus-screen-capture/main": {
+   "docsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "jsSHA256": "fc2e0179fb1bb5e4f0b971a3e9e8c34ce6abe43ebdb71b8b5b4b35e2a1b749c3", 
+   "moduleName": "main", 
+   "packageName": "nimbus-screen-capture", 
+   "requirements": {
+    "chrome": "chrome", 
+    "screen-capture": "nimbus-screen-capture/screen-capture", 
+    "sdk/clipboard": "sdk/clipboard", 
+    "sdk/context-menu": "sdk/context-menu", 
+    "sdk/deprecated/window-utils": "sdk/deprecated/window-utils", 
+    "sdk/hotkeys": "sdk/hotkeys", 
+    "sdk/l10n": "sdk/l10n", 
+    "sdk/net/xhr": "sdk/net/xhr", 
+    "sdk/page-mod": "sdk/page-mod", 
+    "sdk/panel": "sdk/panel", 
+    "sdk/preferences/service": "sdk/preferences/service", 
+    "sdk/request": "sdk/request", 
+    "sdk/self": "sdk/self", 
+    "sdk/tabs": "sdk/tabs", 
+    "toolbarbutton": "nimbus-screen-capture/toolbarbutton"
+   }, 
+   "sectionName": "lib"
+  }, 
+  "nimbus-screen-capture/screen-capture": {
+   "docsSHA256": null, 
+   "jsSHA256": "4d84a7256b1311c9e7342fccb21a8c7d708c97d76988d352a21b2690f226b171", 
+   "moduleName": "screen-capture", 
+   "packageName": "nimbus-screen-capture", 
+   "requirements": {
+    "chrome": "chrome", 
+    "download": "nimbus-screen-capture/download", 
+    "sdk/clipboard": "sdk/clipboard", 
+    "sdk/l10n": "sdk/l10n", 
+    "sdk/notifications": "sdk/notifications", 
+    "sdk/page-mod": "sdk/page-mod", 
+    "sdk/preferences/service": "sdk/preferences/service", 
+    "sdk/self": "sdk/self", 
+    "sdk/tabs": "sdk/tabs"
+   }, 
+   "sectionName": "lib"
+  }, 
+  "nimbus-screen-capture/toolbarbutton": {
+   "docsSHA256": null, 
+   "jsSHA256": "932ba72c4d87ee97de54843d4b2efd94d9ff836bf1f3b4ccb155218465f29677", 
+   "moduleName": "toolbarbutton", 
+   "packageName": "nimbus-screen-capture", 
+   "requirements": {
+    "listen": "nimbus-screen-capture/listen", 
+    "sdk/deprecated/window-utils": "sdk/deprecated/window-utils", 
+    "sdk/preferences/service": "sdk/preferences/service", 
+    "sdk/private-browsing": "sdk/private-browsing", 
+    "sdk/self": "sdk/self", 
+    "sdk/window/utils": "sdk/window/utils", 
+    "unload+": "nimbus-screen-capture/unload+"
+   }, 
+   "sectionName": "lib"
+  }, 
+  "nimbus-screen-capture/unload+": {
+   "docsSHA256": null, 
+   "jsSHA256": "a8a674aac881b08ab85b143090422797909bf8b6549aa412e33f9a26ae400691", 
+   "moduleName": "unload+", 
+   "packageName": "nimbus-screen-capture", 
+   "requirements": {
+    "sdk/system/unload": "sdk/system/unload"
+   }, 
+   "sectionName": "lib"
+  }
+ }, 
+ "metadata": {
+  "addon-sdk": {
+   "description": "Add-on development made easy.", 
+   "keywords": [
+    "javascript", 
+    "engine", 
+    "addon", 
+    "extension", 
+    "xulrunner", 
+    "firefox", 
+    "browser"
+   ], 
+   "license": "MPL 2.0", 
+   "name": "addon-sdk"
+  }, 
+  "nimbus-screen-capture": {
+   "author": "Everhelper", 
+   "description": "Capture Web page, a part of it or the whole browser window, edit screenshots and save the images to Local File or Google Drive", 
+   "license": "MPL 2.0", 
+   "main": "main", 
+   "name": "nimbus-screen-capture", 
+   "permissions": {
+    "private-browsing": true
+   }, 
+   "version": "5.0.2"
+  }
+ }, 
+ "name": "nimbus-screen-capture", 
+ "parseable": false, 
+ "preferencesBranch": "nimbusscreencaptureff@everhelper.me", 
+ "sdkVersion": "1.17", 
+ "staticArgs": {}, 
+ "verbose": false
+}
