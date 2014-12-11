@@ -16,10 +16,10 @@
 <div id="wrapper">
     <div id="editpanel">
         <input id="file-open" type="file" name="files[]" accept="image/*" style="display: none">
-        <button id="open-image" class="save_settings done"><i class="icon"></i><span data-l10n-id="panelOpen">Open</span></button>
+        <button id="open-image" class="save_settings done"><i class="icon"></i><span data-l10n-id="panelOpen">open</span></button>
         <div class="zoom">
-            <button id="zoomplus" class="panel_btn zoomplus" title="zoom +"><span></span></button>
-            <button id="zoomminus" class="panel_btn zoomminus" title="zoom -"><span></span></button>
+            <button id="zoomplus" class="panel_btn zoomplus" title="放大"><span></span></button>
+            <button id="zoomminus" class="panel_btn zoomminus" title="缩小"><span></span></button>
             <div style="float:left" class="small percent">
                 <form action="#">
                     <select id="percent" class="panel_btn percent">
@@ -43,7 +43,7 @@
                 <h5><span data-l10n-id="panelSize">Size</span>:</h5>
 
                 <div class="drop resize_image">
-                    <button id="resize" class="panel_btn resize" title="resize"><span></span></button>
+                    <button id="resize" class="panel_btn resize" title="改变尺寸"><span></span></button>
                     <div id="resize-img" class="drop_panel">
                         <form>
                             <div>
@@ -71,11 +71,11 @@
                         </form>
                     </div>
                 </div>
-                <button id="crop" class="panel_btn crop" title="crop"><span></span></button>
+                <button id="crop" class="panel_btn crop" title="裁剪"><span></span></button>
             </div>
             <div class="drawing_tools">
                 <h5><span data-l10n-id="panelTools">Drawing tools</span>:</h5>
-                <button id="pen" class="panel_btn pen" title="pen"><span></span></button>
+                <button id="pen" class="panel_btn pen" title="钢笔"><span></span></button>
                 <div style="float:left" class="small">
                     <select id="rectangle" class="panel_btn active">
                         <option value="rectangle" class="rectangle" selected>1</option>
@@ -101,7 +101,7 @@
                     </select>
                 </div>
 
-                <button id="text" class="panel_btn text" title="draw text"><span></span></button>
+                <button id="text" class="panel_btn text" title="绘制文字"><span></span></button>
 
                 <div style="float:left" class="small">
                     <select id="inscription" class="panel_btn">
@@ -157,7 +157,7 @@
                 </div>
 
                 <div class="drop tools_shadow">
-                    <button id="shadow" class="panel_btn shadow" title="shadow"><span></span><i class="arrow"></i></button>
+                    <button id="shadow" class="panel_btn shadow" title="阴影"><span></span><i class="arrow"></i></button>
                     <div id="tools-shadow" class="drop_panel">
                         <div class="chk">
                             <input id="enable-shadow" type="checkbox" checked value="">Enable
@@ -197,11 +197,11 @@
             </div>
             <div class="actions">
                 <h5><span data-l10n-id="panelActions">Actions</span>:</h5>
-                <button id="undo" class="panel_btn undo inert" title="undo"><span></span></button>
-                <button id="redo" class="panel_btn redo inert" title="redo"><span></span></button>
-                <button id="undo-all" class="panel_btn undo_all inert" title="undo all"><span></span></button>
+                <button id="undo" class="panel_btn undo inert" title="撤销"><span></span></button>
+                <button id="redo" class="panel_btn redo inert" title="重做"><span></span></button>
+                <button id="undo-all" class="panel_btn undo_all inert" title="全部撤销"><span></span></button>
             </div>
-            <button id="numbers" class="panel_btn numbers" title="display numbers"><span></span></button>
+            <button id="numbers" class="panel_btn numbers" title="显示数字"><span></span></button>
             <div class="clr"></div>
         </div>
 
