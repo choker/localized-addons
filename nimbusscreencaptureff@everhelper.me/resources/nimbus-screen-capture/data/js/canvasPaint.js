@@ -185,6 +185,9 @@ CanvasRenderingContext2D.prototype.clear = function() {
             $('#line-width-styler').find('.text').text(w + 'px').removeAttr('class').addClass("text line_width" + w);
         }
 
+        function setFillColorProperty(c) {
+            $("#fillcolor").spectrum("set", c);
+        }
         var ObTools = {
             x: 0,
             y: 0,
@@ -192,6 +195,7 @@ CanvasRenderingContext2D.prototype.clear = function() {
             yLast: 0,
             width: 1,
             color: 'red',
+            fillColor: 'rgba(255, 0, 0, 0)',
             context: null,
             current: false,
             marker: -1,
@@ -244,6 +248,7 @@ CanvasRenderingContext2D.prototype.clear = function() {
             setElProperties: function() {
                 setWidthProperty(this.width);
                 setColorProperty(this.color);
+                setFillColorProperty(this.fillColor);
             },
             setCursor: function(x, y) {
                 var canva = $('#editcanva');
@@ -560,7 +565,7 @@ CanvasRenderingContext2D.prototype.clear = function() {
             this.store = [];
             this.index = -1;
             this.show = true;
-
+            this.fillColor = '';
 
             this.draw = function(context) {
                 if (!this.show) return;
@@ -568,23 +573,14 @@ CanvasRenderingContext2D.prototype.clear = function() {
                 this.context.beginPath();
                 this.setDrawOptions();
 
-                this.context.lineCap = "square";
                 if (this.width == 1){
-                    var x = this.x + 0.5,
-                        y = this.y + 0.5;
-                    this.context.moveTo(x, y);
-                    this.context.lineTo(x + this.w, y);
-                    this.context.lineTo(x + this.w, y + this.h);
-                    this.context.lineTo(x, y + this.h);
+                    this.context.rect(this.x + 0.5, this.y+0.5, this.w, this.h);
                 } else {
-                    this.context.moveTo(this.x, this.y);
-                    this.context.lineTo(this.x + this.w, this.y);
-                    this.context.lineTo(this.x + this.w, this.y + this.h);
-                    this.context.lineTo(this.x, this.y + this.h);
+                    this.context.rect(this.x, this.y, this.w, this.h);
                 }
 
-//                this.context.strokeRect(x, y, w, h);
-                this.context.closePath();
+                this.context.fillStyle = this.fillColor;
+                this.context.fill();
                 this.context.stroke();
 
                 if (this.current) this.drawMarks();
@@ -649,6 +645,8 @@ CanvasRenderingContext2D.prototype.clear = function() {
                 var radius = Math.min(Math.abs(this.w), Math.abs(this.h)) * 0.25;
                 roundedRect(this.context, this.x, this.y, this.w, this.h, radius);
 
+                this.context.fillStyle = this.fillColor;
+                this.context.fill();
                 this.context.stroke();
 
                 if (this.current) this.drawMarks();
@@ -692,6 +690,8 @@ CanvasRenderingContext2D.prototype.clear = function() {
                 this.setDrawOptions();
                 this.drawEllipse(this.context, this.x, this.y, this.w, this.h);
                 this.context.closePath();
+                this.context.fillStyle = this.fillColor;
+                this.context.fill();
                 this.context.stroke();
 
                 if (this.current) this.drawMarks();
@@ -780,6 +780,8 @@ CanvasRenderingContext2D.prototype.clear = function() {
                 this.context.beginPath();
                 this.setDrawOptions();
                 this.context.arc(this.x, this.y, this.R, 0, 2 * Math.PI, false);
+                this.context.fillStyle = this.fillColor;
+                this.context.fill();
                 this.context.stroke();
 
                 if (this.current) this.drawMarks();
@@ -1909,6 +1911,7 @@ CanvasRenderingContext2D.prototype.clear = function() {
                 objects[currentN].checkMarkers(state.startDrawX, state.startDrawY);
                 setColorProperty(state.strokeColor);
                 setWidthProperty(state.lineThickness);
+                setFillColorProperty(state.fillColor);
                 if (objects[currentN].marker >= 0) {
                     state.move = true;
                     drawNoCurrent();
@@ -2064,6 +2067,7 @@ CanvasRenderingContext2D.prototype.clear = function() {
                     currentObject.number.n = getNumber();
                 }
                 currentObject.setValue(state.startDrawX, state.startDrawY, state.lineThickness, state.strokeColor);
+                currentObject.fillColor = state.fillColor;
             }
             currentObject.shadow = $.extend({}, state.shadow);
             canvas.current.context.beginPath();
@@ -2987,7 +2991,12 @@ CanvasRenderingContext2D.prototype.clear = function() {
         };
 
         this.changeFillColor = function(color) {
+            if (currentN > -1) {
+                objects[currentN].fillColor = color;
+                drawAll();
+            }
             state.fillColor = color;
+            localStorage.fillColor = color;
         };
 
         this.changeStrokeColor = function(color) {

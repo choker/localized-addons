@@ -92,12 +92,6 @@ $(function() {
         self.port.emit("saveoptions", {'options': options, 'target': 'format'});
     });
 
-    $("#button-position").find("input").bind("change", function() {
-        options.toolbarbutton = $('#button-position input[name="main"]').prop("checked");
-
-        self.port.emit("saveoptions", {'options': options, 'target': 'position'});
-    });
-
     $("input#enablekey").bind("change click", function() {
         if ($(this).prop("checked")) {
             $('#mask').hide();
@@ -145,8 +139,6 @@ $(function() {
             $('#mask').show();
             $("input#enablekey").prop('checked', false);
         }
-
-        $("#button-position").find("input[name='main']").prop('checked', options.toolbarbutton);
 
 
         $('#entire').val(options.hotkeys.entire);

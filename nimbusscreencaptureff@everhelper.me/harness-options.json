@@ -10,7 +10,7 @@
  "manifest": {
   "nimbus-screen-capture/download": {
    "docsSHA256": null, 
-   "jsSHA256": "df7023fb1ab6c1cf99041e8928593d93a9aa51749da9c166d67cba4578347d0c", 
+   "jsSHA256": "4ee321ae2432685763f20d85f499222184849a548355e74b3f8ac268b5b804ca", 
    "moduleName": "download", 
    "packageName": "nimbus-screen-capture", 
    "requirements": {
@@ -18,23 +18,14 @@
    }, 
    "sectionName": "lib"
   }, 
-  "nimbus-screen-capture/listen": {
-   "docsSHA256": null, 
-   "jsSHA256": "74057caf6a837e6c8a3e8e73762b1bc08e69e6e087bee5401580a9249a34701c", 
-   "moduleName": "listen", 
-   "packageName": "nimbus-screen-capture", 
-   "requirements": {
-    "unload+": "nimbus-screen-capture/unload+"
-   }, 
-   "sectionName": "lib"
-  }, 
   "nimbus-screen-capture/main": {
    "docsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
-   "jsSHA256": "fc2e0179fb1bb5e4f0b971a3e9e8c34ce6abe43ebdb71b8b5b4b35e2a1b749c3", 
+   "jsSHA256": "61a90439f18e449cc7bdc7887da5c771696312c515ea07ffb4bf146c8c3b634d", 
    "moduleName": "main", 
    "packageName": "nimbus-screen-capture", 
    "requirements": {
     "chrome": "chrome", 
+    "menu-button": "nimbus-screen-capture/menu-button", 
     "screen-capture": "nimbus-screen-capture/screen-capture", 
     "sdk/clipboard": "sdk/clipboard", 
     "sdk/context-menu": "sdk/context-menu", 
@@ -47,14 +38,37 @@
     "sdk/preferences/service": "sdk/preferences/service", 
     "sdk/request": "sdk/request", 
     "sdk/self": "sdk/self", 
-    "sdk/tabs": "sdk/tabs", 
-    "toolbarbutton": "nimbus-screen-capture/toolbarbutton"
+    "sdk/tabs": "sdk/tabs"
+   }, 
+   "sectionName": "lib"
+  }, 
+  "nimbus-screen-capture/menu-button": {
+   "docsSHA256": null, 
+   "jsSHA256": "3fed5b6c9f0d0797e64276d002064e6d77acc24794761e8e5e2b3368e1fc69e3", 
+   "moduleName": "menu-button", 
+   "packageName": "nimbus-screen-capture", 
+   "requirements": {
+    "./view": "nimbus-screen-capture/view", 
+    "sdk/core/disposable": "sdk/core/disposable", 
+    "sdk/core/heritage": "sdk/core/heritage", 
+    "sdk/event/core": "sdk/event/core", 
+    "sdk/event/target": "sdk/event/target", 
+    "sdk/event/utils": "sdk/event/utils", 
+    "sdk/self": "sdk/self", 
+    "sdk/tabs/utils": "sdk/tabs/utils", 
+    "sdk/ui/button/contract": "sdk/ui/button/contract", 
+    "sdk/ui/button/view/events": "sdk/ui/button/view/events", 
+    "sdk/ui/id": "sdk/ui/id", 
+    "sdk/ui/state": "sdk/ui/state", 
+    "sdk/ui/state/events": "sdk/ui/state/events", 
+    "sdk/util/object": "sdk/util/object", 
+    "sdk/view/core": "sdk/view/core"
    }, 
    "sectionName": "lib"
   }, 
   "nimbus-screen-capture/screen-capture": {
    "docsSHA256": null, 
-   "jsSHA256": "4d84a7256b1311c9e7342fccb21a8c7d708c97d76988d352a21b2690f226b171", 
+   "jsSHA256": "d1d8a88fb273c63252e3c6bd8fe0cf1e82fc49cb13747c105094f10b34afb02c", 
    "moduleName": "screen-capture", 
    "packageName": "nimbus-screen-capture", 
    "requirements": {
@@ -70,29 +84,20 @@
    }, 
    "sectionName": "lib"
   }, 
-  "nimbus-screen-capture/toolbarbutton": {
+  "nimbus-screen-capture/view": {
    "docsSHA256": null, 
-   "jsSHA256": "932ba72c4d87ee97de54843d4b2efd94d9ff836bf1f3b4ccb155218465f29677", 
-   "moduleName": "toolbarbutton", 
+   "jsSHA256": "ea0a0c9fe652a3ea28445f844d90f72ea6bf6a16a7fb7ad6ab7bb89738e2b7eb", 
+   "moduleName": "view", 
    "packageName": "nimbus-screen-capture", 
    "requirements": {
-    "listen": "nimbus-screen-capture/listen", 
-    "sdk/deprecated/window-utils": "sdk/deprecated/window-utils", 
-    "sdk/preferences/service": "sdk/preferences/service", 
-    "sdk/private-browsing": "sdk/private-browsing", 
+    "chrome": "chrome", 
+    "sdk/event/core": "sdk/event/core", 
+    "sdk/lang/type": "sdk/lang/type", 
+    "sdk/private-browsing/utils": "sdk/private-browsing/utils", 
     "sdk/self": "sdk/self", 
-    "sdk/window/utils": "sdk/window/utils", 
-    "unload+": "nimbus-screen-capture/unload+"
-   }, 
-   "sectionName": "lib"
-  }, 
-  "nimbus-screen-capture/unload+": {
-   "docsSHA256": null, 
-   "jsSHA256": "a8a674aac881b08ab85b143090422797909bf8b6549aa412e33f9a26ae400691", 
-   "moduleName": "unload+", 
-   "packageName": "nimbus-screen-capture", 
-   "requirements": {
-    "sdk/system/unload": "sdk/system/unload"
+    "sdk/system/unload": "sdk/system/unload", 
+    "sdk/ui/button/view/events": "sdk/ui/button/view/events", 
+    "sdk/window/utils": "sdk/window/utils"
    }, 
    "sectionName": "lib"
   }
@@ -121,7 +126,7 @@
    "permissions": {
     "private-browsing": true
    }, 
-   "version": "5.0.2"
+   "version": "6.1.2"
   }
  }, 
  "name": "nimbus-screen-capture", 

@@ -128,4 +128,4 @@ exports.cancel = cancel;
 exports.show = function () {
   Cc["@mozilla.org/download-manager-ui;1"]
     .createInstance(Ci.nsIDownloadManagerUI).show();
-}
+};

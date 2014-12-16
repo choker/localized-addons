@@ -21,6 +21,7 @@ jQuery(function() {
     })();
     window.l10n = {};
 
+    localStorage.fillColor = localStorage.fillColor || 'rgba(0,0,0,0)';
     localStorage.setting = localStorage.setting || JSON.stringify({width: '3', color: '#FF0000'});
     var setting = JSON.parse(localStorage.setting);
     $("#line-width").val(setting.width);
@@ -37,6 +38,15 @@ jQuery(function() {
     })(localStorage.shadow);
 
     $('#editpanel select, .drop_panel input[type="checkbox"] ').styler();
+
+    $("#fillcolor").spectrum({
+        color: localStorage.fillColor,
+        showAlpha: true,
+        showButtons: false,
+        move: function(color) {
+            canvasManager.changeFillColor(color.toRgbString());
+        }
+    });
 
     function initPage() {
 
@@ -58,6 +68,7 @@ jQuery(function() {
         });
         canvasManager.changeStrokeSize(setting.width);
         canvasManager.changeStrokeColor(setting.color);
+        canvasManager.changeFillColor(localStorage.fillColor);
         canvasManager.changeShadow(setting.shadow);
         canvasManager.setEnableNumbers(localStorage.enablenumbers === 'true');
         $('#colortools-styler').find('.text').css('background-color', setting.color);
@@ -175,12 +186,12 @@ jQuery(function() {
         var panel = $('#editpanel');
         var title = panel.find('h5');
 
-        if ($('body').width() < 1400) {
+        if ($('body').width() < 1500) {
             title.hide();
-            $('.tools').css('max-width', '755px');
+            $('.tools').css('max-width', '823px');
         } else {
             title.show();
-            $('.tools').css('max-width', '970px');
+            $('.tools').css('max-width', '1120px');
         }
 
         $('#photo').css('padding-top', (panel.height() + 10) + 'px');
@@ -802,6 +813,7 @@ jQuery(function() {
         $('#short_URL').attr('original-title', window.l10n.tooltipShortUrl || "Make short URL").tipsy();
         $('#send-to-google').attr('original-title', window.l10n.tooltipNotAuthorized || 'You are not authorized').tipsy();
         $('#user-logout').attr('original-title', window.l10n.tooltipLogout || 'logout').tipsy({gravity: 'w'});
+        $('.drawing_tools .sp-replacer.sp-light').attr('original-title', window.l10n.tooltipFill || 'fill').tipsy();
 
         $('#form-login input').tipsy({trigger: 'focus', gravity: 'w'});
         $('#form-register input').tipsy({trigger: 'focus', gravity: 'w'});

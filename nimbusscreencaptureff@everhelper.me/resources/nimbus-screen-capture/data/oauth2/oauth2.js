@@ -76,7 +76,7 @@ OAuth2.prototype.updateLocalStorage = function() {
     var key;
     for (var i = 0; i < variables.length; i++) {
         key = this.adapterName + '_' + variables[i];
-        if (localStorage.hasOwnProperty(key)) {
+        if (key in localStorage) {
             data[variables[i]] = localStorage[key];
             delete localStorage[key];
         }

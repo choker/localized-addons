@@ -194,6 +194,7 @@ var getL10n = function() {
         "tooltipWrongEmail": _("tooltipWrongEmail"),
         "tooltipPassInfo": _("tooltipPassInfo"),
         "tooltipPassMatch": _("tooltipPassMatch"),
+        "tooltipFill": _("tooltipFill"),
 
         "limitUsage": _("limitUsage"),
         "limitOf": _("limitOf"),

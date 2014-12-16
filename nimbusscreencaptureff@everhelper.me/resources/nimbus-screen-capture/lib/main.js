@@ -4,7 +4,7 @@ var data = self.data;
 var screen = require("screen-capture");
 var pageMod = require('sdk/page-mod');
 var cm = require("sdk/context-menu");
-var toolbarbutton = require("toolbarbutton");
+var { MenuButton } = require('menu-button');
 var { Hotkey } = require("sdk/hotkeys");
 var clipboard = require("sdk/clipboard");
 var Request = require("sdk/request").Request;
@@ -188,39 +188,30 @@ panel.port.on("setDoneType", function (option) {
 function createButton(options) {
     if (!!button) button.destroy();
 
-    button = toolbarbutton.ToolbarButton({
-        id: "nimbus-screen-capture",
-        label: "Nimbus Screenshot",
+    button = MenuButton({
+        id: 'nimbus-screen-capture',
+        label: 'Nimbus Screenshot',
         tooltiptext: "Nimbus Screenshot",
-        image: data.url("./images/icons/16x16.png"),
+        type: (extensionsOptions.getQuickCapture() == 'false') ? 'button' : "menu-button",
         icon: {
             "16": "./images/icons/16x16.png",
             "32": "./images/icons/32x32.png",
             "64": "./images/icons/64x64.png"
         },
-        type: (extensionsOptions.getQuickCapture() == 'false') ? 'button' : "menu-button",
-        onCommand: function (tbb, options) {
+        onClick: function (state, isMenu) {
             var q = extensionsOptions.getQuickCapture();
-            if (q !== 'false') {
-                panel.hide();
-                screen.capturepage(q);
-            }
-        },
-        onClick: function (e, tbb) {
-            if(e.button == 0) {
-                panel.show(tbb);
+            if (isMenu) {
+                panel.show({
+                    position: button
+                });
+            } else {
+                if (q !== 'false') {
+                    screen.capturepage(q);
+                }
             }
         }
     });
 
-    if (!preferences.get("extensions.nimbusScreenshot." + 'firstInstall')) {
-        button.moveTo({
-            toolbarID: "nav-bar",
-            insertbefore: "search-container",
-            forceMove: false
-        });
-        preferences.set("extensions.nimbusScreenshot." + 'firstInstall', true);
-    }
 }
 
 exports.main = function (options) {
@@ -272,14 +263,6 @@ exports.main = function (options) {
 
                     for each (var tab in tabs) {
                         if(tab.url == data.url('edit.html')){
-//                            tab.attach({
-//                                contentScript: "window.bbb();"
-//                                contentScript: "document.getElementById('messageChannel').setAttribute('message', '"+JSON.stringify({
-//                                    data: text.error,
-//                                    target: 'callback',
-//                                    direction: 'sync_to_content'
-//                                })+"');"
-//                            });
                             currentWorker.port.emit("oauthcallback", text.error);
                         }
                     }
@@ -302,6 +285,7 @@ exports.main = function (options) {
             data.url("oauth2/oauth2.js"),
             data.url("js/nimbusShare.js"),
             data.url("js/jquery.formstyler.js"),
+            data.url("js/spectrum.js"),
             data.url("js/screen.js")
         ],
         onAttach: function (worker) {
@@ -531,15 +515,6 @@ exports.main = function (options) {
                 switch (text.target) {
                     case 'format':
                         break;
-                    case 'position':
-                        if (!!extensionsOptions.getOptions().toolbarbutton) {
-                            createButton(options);
-                        } else {
-                            if (!!button) {
-                                button.destroy();
-                            }
-                        }
-                        break;
                     case 'shadow':
                         break;
                     case 'number':
@@ -629,10 +604,7 @@ exports.main = function (options) {
         }
     });
 
-    if (!!extensionsOptions.getOptions().toolbarbutton) {
-        createButton(options);
-    }
-
+    createButton(options);
 };
 
 function addShortcuts() {
