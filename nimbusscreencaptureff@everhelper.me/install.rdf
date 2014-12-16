@@ -22,7 +22,14 @@
     <em:description>Screen capture Web Page, selected region or whole browser window, edit screenshots and save the images to Local File or Google Drive. Edit screenshots in a very user-friendly interface with the different tools.</em:description>
     <em:creator>Everhelper</em:creator>
     
-    
+    <em:localized>
+     <Description>
+       <em:locale>zh-CN</em:locale>
+       <em:name>Nimbus 屏幕截图 - 可编辑的屏幕截图</em:name>
+       <em:description>截取网页，选中区域或整个浏览器窗口，编辑截图并保存图像到本地文件或 Google Drive。在一个非常用户友好的界面下使用不同工具编辑截图。</em:description>
+	   <em:translator>lychichem</em:translator>
+     </Description>
+    </em:localized>
     
   </Description>
 </RDF>
