@@ -1,0 +1,103 @@
+<!ENTITY accept '接受'>
+<!ENTITY addremove '使用 &lt;&gt; 区分多个词条'>
+<!ENTITY addtag '添加标签'>
+<!ENTITY agent '/* AGENT_SHEET */'>
+<!ENTITY autoimportant '自动添加 Important'>
+<!ENTITY background 'background: url("") !important;'>
+<!ENTITY bars 'Bars'>
+<!ENTITY blank '空白样式'>
+<!ENTITY both 'Both'>
+<!ENTITY bottom '默认 (底部)'>
+<!ENTITY browse '浏览'>
+<!ENTITY buttons '按钮 :'>
+<!ENTITY bytes '# of Bytes'>
+<!ENTITY caption '[显示] [可编辑的按钮名称] [工具栏#(1-7),位置#(1-999) 例如 3,11]'>
+<!ENTITY check '检查错误'>
+<!ENTITY checkupdate '检查更新'>
+<!ENTITY class '转换 .abc 为 [class="abc"]'>
+<!ENTITY clear '清除'>
+<!ENTITY clearA '清除1'>
+<!ENTITY clearB '清除2'>
+<!ENTITY clear1 '清除 代码速记本 1 文字区域'>
+<!ENTITY clear2 '清除 代码速记本 2 文字区域'>
+<!ENTITY clone '复制样式'>
+<!ENTITY closing '关闭窗口 :'>
+<!ENTITY color '颜色格式'>
+<!ENTITY comment '注释'>
+<!ENTITY commentgroup '注释组 (中键点击以编辑符号)'>
+<!ENTITY convertclass '转换类名'>
+<!ENTITY convertid '转换 ID'>
+<!ENTITY copy '复制'>
+<!ENTITY count '计数'>
+<!ENTITY curly '花括号 { }'>
+<!ENTITY cursor 'Cursor At'>
+<!ENTITY cut '剪切'>
+<!ENTITY dark '暗色主题 :'>
+<!ENTITY default '默认Default'>
+<!ENTITY down '向下'>
+<!ENTITY editor '编辑器 :'>
+<!ENTITY external '外部编辑器 :'>
+<!ENTITY externaleditor '外部编辑器'>
+<!ENTITY errors '错误框 :'>
+<!ENTITY export '导出样式'>
+<!ENTITY exportpref '将当前设置导出到文件'>
+<!ENTITY false 'False'>
+<!ENTITY focus '为插入的文字移除焦点 :'>
+<!ENTITY goto '跳至行 #'>
+<!ENTITY gotoend '到底部'>
+<!ENTITY gototop '返回顶部'>
+<!ENTITY grayscale '灰度图标 :'>
+<!ENTITY hide '隐藏警告对话框 "您确定?" 当'>
+<!ENTITY icononly '仅图标'>
+<!ENTITY id '转换 #abc 为 [id="abc"]'>
+<!ENTITY important '!important;'>
+<!ENTITY importpref '从文件中导入保存的设置'>
+<!ENTITY insertcolor '插入颜色'>
+<!ENTITY inserttext '插入文字 (中键点击以添加/移除文字)'>
+<!ENTITY make '设为 Important'>
+<!ENTITY name '名称'>
+<!ENTITY no '否'>
+<!ENTITY note '注意 :  在编辑前应用设置'>
+<!ENTITY openeditor '在何处打开编辑器 :'>
+<!ENTITY opentab '打开标签页'>
+<!ENTITY openwindow '打开窗口'>
+<!ENTITY orion 'Orion'>
+<!ENTITY off '关闭'>
+<!ENTITY on '开启'>
+<!ENTITY page '样式页面'>
+<!ENTITY paste '粘贴'>
+<!ENTITY preview '预览'>
+<!ENTITY profile '将文件保存于配置文件夹中名为 stylishmod-styles 的文件夹'>
+<!ENTITY position '位置'>
+<!ENTITY redo '重做'>
+<!ENTITY remove '移除 XUL'>
+<!ENTITY restoredown '恢复 Down'>
+<!ENTITY restorewindow '恢复窗口'>
+<!ENTITY savedisabled '禁用并保存'>
+<!ENTITY saveenabled '启用并保存'>
+<!ENTITY scratchpad1 '代码速记本 1 (保留文字)'>
+<!ENTITY scratchpad2 '代码速记本 2 (关闭时清空)'>
+<!ENTITY select '全选'>
+<!ENTITY settings '设置'>
+<!ENTITY settingspref '设置 :'>
+<!ENTITY square '方括号 [ ]'>
+<!ENTITY standard '标准'>
+<!ENTITY styleid 'ID'>
+<!ENTITY switch '切换编辑器 :'>
+<!ENTITY switching '切换编辑器 :'>
+<!ENTITY symbol1 '符号 1'>
+<!ENTITY symbol2 '符号 2'>
+<!ENTITY symbol3 '符号 3'>
+<!ENTITY symbolbutton '点击以预览选择'>
+<!ENTITY symbolnote '全部 3 个符号必须互不相同'>
+<!ENTITY togglebars '切换工具栏'>
+<!ENTITY top '固定 (顶部)'>
+<!ENTITY textonly '仅文本'>
+<!ENTITY true 'True'>
+<!ENTITY undo '撤销'>
+<!ENTITY undoall '全部撤销'>
+<!ENTITY unobfuscate '使长的单行代码可读'>
+<!ENTITY unpreview '取消预览'>
+<!ENTITY up 'Up'>
+<!ENTITY yes '是'>
+

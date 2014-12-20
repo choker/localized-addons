@@ -1,0 +1,9 @@
+@-moz-document url-prefix(about:stylish-edit) {
+  #stylish-edit .button:not(.findbar-clear) .button-icon {
+    display: none;
+  }
+  #stylish-edit .button .button-text,
+  #stylish-edit #toggler-popup .button .button-icon  {
+    display: -moz-box;
+  }
+}

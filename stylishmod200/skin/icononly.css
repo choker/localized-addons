@@ -1,0 +1,11 @@
+@-moz-document url-prefix(about:stylish-edit) {
+  #stylish-edit .button .button-text {
+    display: none;
+  }
+  #stylish-edit .button .button-icon,
+  #stylish-edit #setEditor .button-text,
+  #stylish-edit #toggler-popup .button .button-text,
+  #stylish-edit #custom-insert-popup .button .button-text  {
+    display: -moz-box;
+  }
+}

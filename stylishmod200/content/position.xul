@@ -1,0 +1,395 @@
+<?xml version='1.0'?>
+<?xml-stylesheet href='chrome://global/skin/' type='text/css'?>
+<?xml-stylesheet href='chrome://stylish/skin/edit.css' type='text/css'?>
+<?xml-stylesheet href='chrome://browser/skin/devtools/common.css' type='text/css'?>
+<?xml-stylesheet href='chrome://stylishmod/skin/stylishmod.css' type='text/css'?>
+<?xul-overlay href='chrome://global/content/editMenuOverlay.xul'?>
+<!DOCTYPE window [<!ENTITY % stylishmod SYSTEM 'chrome://stylishmod/locale/stylishmod.dtd'> %stylishmod;]>
+<dialog id='position-dialog' xmlns='http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul' xmlns:html='http://www.w3.org/1999/xhtml' windowtype='position:dialog' 
+  onload='onLoad()' onclose='hideNumber()' title='Position Buttons' buttons='accept' width='610' height='440' persist='width,height,screenX,screenY'>
+  <html:link rel='icon' href='chrome://stylish/skin/16.png' style='display:none'/>
+  <script type='application/javascript' src='chrome://global/content/globalOverlay.js'/>
+  <script type='application/javascript' src='chrome://stylishmod/content/stylishmod.js'/>
+  <commandset id='editMenuCommands'/>
+  <menupopup id='sourceeditor-context'>
+    <menuitem id='menu_undo' class='menuitem-iconic'/>
+    <menuitem id='menu_cut' class='menuitem-iconic'/>
+    <menuitem id='menu_copy' class='menuitem-iconic'/>
+    <menuitem id='menu_paste' class='menuitem-iconic'/>
+    <menuitem id='menu_delete' class='menuitem-iconic'/>
+    <!-- <menuitem id='menu_selectAll' class='menuitem-iconic' onclick='codeElementWrapper.setSelectionRange(0, codeElementWrapper.value.length)'/> -->
+    <menuitem id='menu_selectAll' class='menuitem-iconic' command='cmd_selectAll'/>
+  </menupopup>
+  <groupbox class='groupbox'>
+    <caption class='caption' align='center'>
+      <label value='&caption;'/>
+      <checkbox id='show-number' label='Show Toolbar Numbers' oncommand='onNum(this)'/>
+    </caption>
+    <hbox>
+      <vbox>
+        <hbox>
+          <checkbox id='add-tag-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='add-tag-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='add-tag-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='auto-important-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='auto-important-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='auto-important-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='blank-style-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='blank-style-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='blank-style-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='bytes-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='bytes-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='bytes-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='clear1-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='clear1-lb' class='label' oninput='onLabel(this)' placeholder='&clearA;' context='sourceeditor-context'/>
+          <textbox id='clear1-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='clear2-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='clear2-lb' class='label' oninput='onLabel(this)' placeholder='&clearB;' context='sourceeditor-context'/>
+          <textbox id='clear2-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='clone-style-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='clone-style-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='clone-style-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='color-format-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='color-format-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='color-format-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='comment-group-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='comment-group-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='comment-group-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='comment-text-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='comment-text-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='comment-text-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='convert-class-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='convert-class-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='convert-class-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='convert-id-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='convert-id-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='convert-id-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='copy-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='copy-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='copy-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='curly-bracket-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='curly-bracket-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='curly-bracket-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='cursor-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='cursor-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='cursor-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='cut-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='cut-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='cut-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='export-style-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='export-style-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='export-style-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='external-editor-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='external-editor-lb' class='label disabled' disabled='true'/>
+          <textbox id='external-editor-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='findbar-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='findbar-lb' class='label disabled' disabled='true'/>
+          <textbox id='findbar-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='go-to-end-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='go-to-end-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='go-to-end-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='go-to-top-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='go-to-top-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='go-to-top-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+      </vbox>
+      <vbox>
+        <hbox>
+          <checkbox id='line-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='line-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='line-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='styleid-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='styleid-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='styleid-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='insert-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='insert-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='insert-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='pick-color-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='pick-color-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='pick-color-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='custom-insert-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='custom-insert-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='custom-insert-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='make-important-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='make-important-lb' class='label' oninput='onLabel(this)' placeholder='&name;' context='sourceeditor-context'/>
+          <textbox id='make-important-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='style-name-cb' class='disabled' disabled='true'/>
+          <textbox id='style-name-lb' class='label' oninput='onLabel(this)' placeholder='&name;' context='sourceeditor-context'/>
+          <textbox id='style-name-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='paste-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='paste-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='paste-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='position-cb' class='disabled' disabled='true'/>
+          <textbox id='position-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='position-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='preview-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='preview-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='preview-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='redo-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='redo-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='redo-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='removeXUL-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='removeXUL-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='removeXUL-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='restore-down-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='restore-down-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='restore-down-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='restore-window-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='restore-window-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='restore-window-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='save-button-alt-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='save-button-alt-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='save-button-alt-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='save-button-disabled-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='save-button-disabled-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='save-button-disabled-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='save-button-enabled-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='save-button-enabled-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='save-button-enabled-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='scratchpad1-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='scratchpad1-lb' class='label disabled' disabled='true'/>
+          <textbox id='scratchpad1-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='scratchpad2-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='scratchpad2-lb' class='label disabled' disabled='true'/>
+          <textbox id='scratchpad2-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='select-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='select-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='select-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='settings-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='settings-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='settings-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+      </vbox>
+      <vbox>
+        <hbox>
+          <checkbox id='sq-bracket-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='sq-bracket-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='sq-bracket-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='style-page-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='style-page-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='style-page-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='togglebars-cb' class='disabled' disabled='true'/>
+          <textbox id='togglebars-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='togglebars-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='undo-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='undo-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='undo-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='undo-all-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='undo-all-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='undo-all-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='unobfuscate-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='unobfuscate-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='unobfuscate-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='unpreview-cb' class='disabled' disabled='true'/>
+          <textbox id='unpreview-lb' class='label' oninput='onLabel(this)' placeholder='&unpreview;' context='sourceeditor-context'/>
+          <textbox id='unpreview-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='update-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='update-lb' class='label disabled' disabled='true'/>
+          <textbox id='update-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='wrap-lines-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='wrap-lines-lb' class='label' oninput='onLabel(this)' context='sourceeditor-context'/>
+          <textbox id='wrap-lines-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='flex1-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='flex1-lb' class='label disabled' disabled='true'/>
+          <textbox id='flex1-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='flex2-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='flex2-lb' class='label disabled' disabled='true'/>
+          <textbox id='flex2-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='flex3-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='flex3-lb' class='label disabled' disabled='true'/>
+          <textbox id='flex3-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='flex4-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='flex4-lb' class='label disabled' disabled='true'/>
+          <textbox id='flex4-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='flex5-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='flex5-lb' class='label disabled' disabled='true'/>
+          <textbox id='flex5-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='space1-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='space1-lb' class='label disabled' disabled='true'/>
+          <textbox id='space1-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='space2-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='space2-lb' class='label disabled' disabled='true'/>
+          <textbox id='space2-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='spacer1-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='spacer1-lb' class='label disabled' disabled='true'/>
+          <textbox id='spacer1-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='spacer2-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='spacer2-lb' class='label disabled' disabled='true'/>
+          <textbox id='spacer2-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='spacer3-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='spacer3-lb' class='label disabled' disabled='true'/>
+          <textbox id='spacer3-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='spacer4-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='spacer4-lb' class='label disabled' disabled='true'/>
+          <textbox id='spacer4-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+        <hbox>
+          <checkbox id='spacer5-cb' class='checkbox' oncommand='onCheckbox(this)'/>
+          <textbox id='spacer5-lb' class='label disabled' disabled='true'/>
+          <textbox id='spacer5-tb' class='textbox' maxlength='5' oninput='onPosition(this)' context='sourceeditor-context'/>
+        </hbox>
+      </vbox>
+    </hbox>
+    <hbox id='bntCont' pack='end'>
+      <button dlgtype='accept' id='myAccept' label='&accept;' oncommand='onAccept(); hideNumber()'/>
+    </hbox>
+  </groupbox>
+  <script type='application/x-javascript'>
+    <![CDATA[
+      var prefs2 = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefService).getBranch('extensions.stylishmod.');
+      var prefs3 = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefService).getBranch('extensions.stylishmod.move.');
+      var prefs4 = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefService).getBranch('extensions.stylishmod.label.');
+      var cb = document.getElementsByClassName('checkbox'), tb = document.getElementsByClassName('textbox'), lb = document.getElementsByClassName('label');
+      var id = prefs2.getIntPref('id'), wm = mrw('stylishEdit' + id);
+      function onLoad() {
+        for (var i = 0; i < cb.length; i++) {
+          var nam = cb[i].id.split('-cb')[0];
+          cb[i].checked = prefs2.getBoolPref(nam);
+        } 
+        for (var i = 0; i < tb.length; i++) {
+          var nam = tb[i].id.split('-tb')[0];
+          tb[i].value = prefs3.getCharPref(nam);
+        }
+        for (var i = 0; i < lb.length; i++) {
+          var nam = lb[i].id.split('-lb')[0];
+          lb[i].value = prefs4.getCharPref(nam);
+      } }
+      function onNum(e) {
+        if (e.checked) showNumber();
+        else hideNumber();
+      }
+      function onAccept() {
+        for (var i = 0; i < cb.length; i++) {
+          var nam = cb[i].id.split('-cb')[0];
+          prefs2.setBoolPref(nam, cb[i].checked );
+        }
+        for (var i = 0; i < tb.length; i++) {
+          var nam = tb[i].id.split('-tb')[0];
+          prefs3.setCharPref(nam, tb[i].value);
+        } 
+        for (var i = 0; i < lb.length; i++) {
+          var nam = lb[i].id.split('-lb')[0];
+          lb[i].value = prefs4.setCharPref(nam, lb[i].value);
+      } }
+    ]]>
+  </script>
+</dialog>
+

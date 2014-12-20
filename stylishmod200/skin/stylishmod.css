@@ -1,0 +1,502 @@
+@-moz-document url-prefix(about:stylish-edit) {
+  #stylish-edit hbox.insert-hbox {
+    max-height: 24px !important;
+    min-height: 24px !important;
+  }
+  #stylish-edit button.uri-button {
+    margin-right: 4px;
+    max-height: 22px !important;
+    min-height: 22px !important;
+    min-width: 32px !important;
+  }
+  #stylish-edit button.uri-button .button-icon {
+    display: none !important;
+  }
+  #stylish-edit button.uri-button .button-text {
+    display: -moz-box !important;
+    padding: 0 4px !important;
+  }
+  #stylish-edit #settings radiogroup {
+    padding: 2px 0;
+  }
+  #stylish-edit #custom-insert-popup .insert-label {
+    padding-right: 4px;
+  }
+  #stylish-edit #custom-insert-popup hbox:hover .button-icon {
+    opacity: 1;
+  }
+  #stylish-edit #custom-insert-popup hbox:hover {
+    background: #DDD;
+  }
+  #stylish-edit dropmarker {
+    display: none; 
+  }
+  #stylish-edit #custom-insert-popup .button-icon,
+  #stylish-edit #options-popup .button-icon {
+    filter: none; 
+    opacity: .3;
+  }
+  #stylish-edit .togger .button-icon {
+    filter: none; 
+    opacity: 1;
+  }
+  #stylish-edit #custom-insert-popup .button:hover .button-icon,
+  #stylish-edit #options-popup .button:hover .button-icon {
+    opacity: 1;
+  }
+  #stylish-edit .togger[no-show="true"] .button-icon {
+    opacity: .3;
+  }
+  #stylish-edit #clear3 {
+    max-width: 26px !important;
+    min-width: 26px !important;
+    padding: 0 !important;
+  }
+  #stylish-edit #clear3 .button-text {
+    display: none !important;
+  }
+  #stylish-edit #errors > label {
+    display: block !important;
+  }
+  #stylish-edit #toggler-popup .button,
+  #stylish-edit #custom-insert-popup .button {
+    margin: 1px;
+  }
+  #stylish-edit #insert-popup > menuitem {
+    margin-left: -24px !important;
+  }
+  #stylish-edit #buttondisplay {
+    margin-left: 0 !important;
+  }
+  #stylish-edit .button-box,
+  #stylish-edit .radio-label-box,
+  #stylish-edit .checkbox-label-box {
+    border: none;
+    margin: 0;
+    outline: none;
+    padding: 0;
+  }
+  #stylish-edit .hbox {
+    min-height: 32px;
+    margin: 0;
+    padding: 0;
+  }
+  #stylish-edit .button {
+    height: 26px;
+    margin: 0 4px;
+    min-width: 26px;
+    padding: 2px;
+  }
+  #stylish-edit .button[no-text='true'] .button-text {
+    display: none;
+  }
+  #stylish-edit .textbox {
+    margin: 0 4px;
+    padding: 0 !important;
+  }
+  #stylish-edit .button,
+  #stylish-edit .textbox,
+  #stylish-edit .checkbox {
+    -moz-appearance: none !important;
+    background: #EEE;
+    min-height: 26px;
+    border: 1px solid #AAA !important;
+  }
+  #stylish-edit .checkbox {
+    padding: 0 6px 0 4px;
+  }
+  #stylish-edit .button .button-icon {
+    list-style-image: url(icons.png);
+    margin: 0;
+    min-height: 20px;
+    padding: 0;
+    width: 20px;
+  }
+  #stylish-edit .button .button-text,
+  #stylish-edit #findbar .button .button-text  {
+    padding: 0 2px;
+  }
+  #stylish-edit #name,
+  #stylish-edit #important-key,
+  #stylish-edit #line-number-search,
+  #stylish-edit #line-number,
+  #stylish-edit #wrap-lines:hover,
+  #stylish-edit #important-enabled:hover,
+  #stylish-edit .button:hover {
+    background: #FFF;
+  }
+  #stylish-edit #name {
+    padding-left: 4px !important;
+  }
+  #stylish-edit #style-id,
+  #stylish-edit #character-count,
+  #stylish-edit #important-key:not(menupopup),
+  #stylish-edit #line-number-search,
+  #stylish-edit #line-number {
+    text-align: center;
+  }
+  #stylish-edit #cursor-at,
+  #stylish-edit #character-count,
+  #stylish-edit #line-number,
+  #stylish-edit #style-id {
+    pointer-events: none;
+  }
+  #stylish-edit #cursor-at {
+    padding-right: 4px;
+  }
+  #stylish-edit #important-key,
+  #stylish-edit #cursor-at {
+    border-right: none !important;
+  }
+  #stylish-edit #important-enabled {
+    margin-left: -4px;
+  }
+  #stylish-edit #line-number-search {
+    border-left: none !important;
+    margin-left: -4px;
+  }
+  #stylish-edit #line-number {
+    background: #EEE;
+    border-left: none;
+    margin-left: -5px;
+    min-width: 32px;
+    max-width: 60px;
+  }
+  #stylish-edit #name-label,
+  #stylish-edit #count-label,
+  #stylish-edit #style-id-label {
+    margin-top: 3px;
+  }
+  #stylish-edit #clear1,
+  #stylish-edit #clear2 {
+    min-width: 26px;
+  }
+  #stylish-edit #findbar {
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin-right: 4px;
+  }
+  #stylish-edit #findbar * { 
+    -moz-appearance: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+  #stylish-edit #findbar #find-status {
+    color: #F00;
+    margin-right: 6px !important;
+  }
+  #stylish-edit #findbar #clear3 {
+    padding: 0 4px;
+  }
+  #stylish-edit #findbar .findbar-textbox {
+    margin-left: -1px;
+    max-width: 260px;
+    min-width: 260px;
+    padding: 0 4px;
+  }
+  #stylish-edit #findbar #find-next,
+  #stylish-edit #findbar #find-previous { 
+    background: #EEE;
+    border: 1px solid #AAA;
+    margin-left: -1px;
+  }
+  #stylish-edit #findbar #find-next:not([disabled]):hover, 
+  #stylish-edit #findbar #find-previous:not([disabled]):hover { 
+    background: #FFF;
+  }
+  #stylish-edit #findbar #find-next .toolbarbutton-icon,
+  #stylish-edit #findbar #find-previous .toolbarbutton-icon { 
+    margin-left: 6px;
+  }
+  #stylish-edit #preview .button-icon {
+    -moz-image-region: rect(32px 64px 64px 32px);
+  }
+  #stylish-edit #color-format .button-icon {
+    -moz-image-region: rect(0 64px 32px 32px);
+  }
+  #stylish-edit #comment-text .button-icon {
+    -moz-image-region: rect(0 96px 32px 64px);
+  }
+  #stylish-edit #copy .button-icon {
+    -moz-image-region: rect(0 128px 32px 96px);
+  }
+  #stylish-edit #insert .button-icon {
+    -moz-image-region: rect(0 160px 32px 128px);
+  }
+  #stylish-edit #comment-group .button-icon {
+    -moz-image-region: rect(0 224px 32px 192px);
+  }
+  #stylish-edit #pick-color .button-icon {
+    -moz-image-region: rect(32px 32px 64px 0);
+  }
+  #stylish-edit #redo .button-icon {
+    -moz-image-region: rect(32px 96px 64px 64px);
+  }
+  #stylish-edit #save-button-alt .button-icon {
+    -moz-image-region: rect(32px 128px 64px 96px);
+  }
+  #stylish-edit #save-button-disabled .button-icon {
+    -moz-image-region: rect(32px 160px 64px 128px);
+  }
+  #stylish-edit #unobfuscate .button-icon {
+    -moz-image-region: rect(32px 224px 64px 192px);
+  }
+  #stylish-edit #save-button-enabled .button-icon {
+    -moz-image-region: rect(64px 32px 96px 0);
+  }
+  #stylish-edit #select .button-icon {
+    -moz-image-region: rect(64px 64px 96px 32px);
+  }
+  #stylish-edit #togglebars .button-icon,
+  #stylish-edit #togglepad1 .button-icon,
+  #stylish-edit #togglepad2 .button-icon,
+  #stylish-edit #togglebottom .button-icon  {
+    -moz-image-region: rect(64px 96px 96px 64px);
+  }
+  #stylish-edit #undo .button-icon {
+    -moz-image-region: rect(64px 128px 96px 96px);
+  }
+  #stylish-edit #style-page .button-icon {
+    -moz-image-region: rect(64px 160px 96px 128px);
+  }
+  #stylish-edit #paste .button-icon {
+    -moz-image-region: rect(64px 192px 96px 160px);
+  }
+  #stylish-edit #removeXUL .button-icon {
+    -moz-image-region: rect(64px 224px 96px 192px);
+  }
+  #stylish-edit #line-number-search-button .button-icon {
+    -moz-image-region: rect(96px 32px 128px 0);
+  }
+  #stylish-edit #export-style .button-icon {
+    -moz-image-region: rect(96px 64px 128px 32px);
+  }
+  #stylish-edit #cursor-at .button-icon {
+    -moz-image-region: rect(96px 96px 128px 64px);
+  }
+  #stylish-edit #clear1 .button-icon,
+  #stylish-edit #clear2 .button-icon,
+  #stylish-edit #clear3 .button-icon {
+    -moz-image-region: rect(96px 128px 128px 96px);
+  }
+  #stylish-edit #settings .button-icon {
+    -moz-image-region: rect(96px 160px 128px 128px);
+  }
+  #stylish-edit #cut .button-icon {
+    -moz-image-region: rect(96px 192px 128px 160px);
+  }
+  #stylish-edit #clone-style .button-icon {
+    -moz-image-region: rect(96px 224px 128px 192px);
+  }
+  #stylish-edit #blank-style .button-icon {
+    -moz-image-region: rect(128px 96px 160px 64px);
+  }
+  #stylish-edit #position .button-icon {
+    -moz-image-region: rect(128px 128px 160px 96px);
+  }
+  #stylish-edit #unpreview .button-icon {
+    -moz-image-region: rect(128px 160px 160px 128px);
+  }
+  #stylish-edit #undo-all .button-icon {
+    -moz-image-region: rect(128px 192px 160px 160px);
+  }
+  #stylish-edit #add-tag .button-icon {
+    -moz-image-region: rect(128px 224px 160px 192px);
+  }
+  #stylish-edit #custom-insert .button-icon {
+    -moz-image-region: rect(0 192px 32px 160px);
+  }
+  #stylish-edit #custom-insert-popup .button-icon {
+    -moz-image-region: rect(32px 192px 64px 160px);
+  }
+  #stylish-edit #external-editor .button-icon {
+    -moz-image-region: rect(160px 32px 192px 0);
+  }
+  #stylish-edit #make-important .button-icon {
+    -moz-image-region: rect(160px 64px 192px 32px);
+  }
+  #stylish-edit #sq-bracket .button-icon {
+    -moz-image-region: rect(160px 96px 192px 64px);
+  }
+  #stylish-edit #curly-bracket .button-icon {
+    -moz-image-region: rect(160px 128px 192px 96px);
+  }
+  #stylish-edit #convert-class .button-icon {
+    -moz-image-region: rect(160px 160px 192px 128px);
+  }
+  #stylish-edit #convert-id .button-icon {
+    -moz-image-region: rect(160px 192px 192px 160px);
+  }
+  #stylish-edit #export-prefs .button-icon {
+    -moz-image-region: rect(192px 32px 224px 0);
+  }
+  #stylish-edit #import-prefs .button-icon {
+    -moz-image-region: rect(192px 64px 224px 32px);
+  }
+  #stylish-edit #restore-down .button-icon {
+    -moz-image-region: rect(192px 96px 224px 64px);
+  }
+  #stylish-edit #restore-window .button-icon {
+    -moz-image-region: rect(192px 128px 224px 96px);
+  }
+  #stylish-edit #go-to-end .button-icon {
+    -moz-image-region: rect(192px 192px 224px 160px);
+  }
+  #stylish-edit #go-to-top .button-icon {
+    -moz-image-region: rect(192px 224px 224px 192px);
+  }
+  #stylish-edit .spacer {
+    background: url(separator.png);
+    width: 7px;
+  }
+  #stylish-edit .separator {
+    margin: 0 32px 4px 0;
+  }
+  #stylish-edit #alert-hide,
+  #stylish-edit #note {
+    font-weight: bold;
+  }
+  #stylish-edit #note,
+  #stylish-edit #profile {
+    color: #090;
+    font-weight: bold;
+    text-align: center;
+  }
+  #stylish-edit #windowalert,
+  #stylish-edit #editoralert {
+    margin-left: 16px;
+  }
+  #stylish-edit #sourceeditor {
+    border: 1px solid #569DE5;
+    margin: 2px;
+  }
+  #stylish-edit .textarea { 
+    min-height: 26px; 
+    padding-left: 6px; 
+    resize: both; 
+  }
+  #stylish-edit .space { 
+    width: 8px; 
+  }
+  #stylish-edit #setEditor .button-icon,
+  #custom-insert-popup button .button-text {
+    display: none;
+  }
+  #stylish-edit .text-button {
+    -moz-appearance: none; 
+    background: none; 
+    border: none; 
+    margin: 0; 
+    min-width: 10px; 
+    min-height: 10px;
+    padding: 0; 
+  }
+  #stylish-edit #tbtn2, 
+  #stylish-edit #tbtn3, 
+  #stylish-edit #tbtn4, 
+  #stylish-edit #tbtn5, 
+  #stylish-edit #tbtn6, 
+  #stylish-edit #tbtn7 {
+    -moz-box-ordinal-group: 0 !important; 
+    color: #000; 
+    max-width: 15px !important;
+    min-width: 15px !important;
+    padding: 0 !important;
+    pointer-events: none !important;
+  }
+  #stylish-edit #tbtn2 .button-icon, 
+  #stylish-edit #tbtn3 .button-icon, 
+  #stylish-edit #tbtn4 .button-icon, 
+  #stylish-edit #tbtn5 .button-icon, 
+  #stylish-edit #tbtn6 .button-icon, 
+  #stylish-edit #tbtn7 .button-icon {
+    display: none !important; 
+  }
+  #stylish-edit #tbtn2 .button-text, 
+  #stylish-edit #tbtn3 .button-text, 
+  #stylish-edit #tbtn4 .button-text, 
+  #stylish-edit #tbtn5 .button-text, 
+  #stylish-edit #tbtn6 .button-text, 
+  #stylish-edit #tbtn7 .button-text {
+    display: -moz-box !important; 
+  }
+}
+
+@-moz-document url(chrome://stylishmod/content/position.xul) {
+  #position-dialog vbox {
+    margin: 8px;
+  }
+  #position-dialog checkbox {
+    margin: 0 -6px 0 0;
+  }
+  #position-dialog .label {
+    padding: 0 4px;
+    width: 110px;
+  }
+  #position-dialog .textbox {
+    padding: 0 4px 0 0;
+    text-align: center;
+    width: 42px;
+  }
+  textbox.disabled {
+    -moz-user-select: none;
+    opacity: .5;
+  }
+}
+
+@-moz-document url(chrome://stylishmod/content/custom.xul) {
+  #custom-dialog .textarea { 
+    min-height: 26px; 
+    padding-left: 6px; 
+    resize: vertical; 
+  }
+  #custom-dialog .menupopup {
+    -moz-appearance: none;
+  }
+  #custom-dialog .textbox {
+    -moz-appearance: textfield !important;
+    padding: 0 4px 0 0;
+    text-align: center;
+    width: 50px;
+  }
+}
+
+@-moz-document url-prefix(about:stylish-edit), 
+url(chrome://stylishmod/content/custom.xul), 
+url(chrome://stylishmod/content/position.xul),
+url(chrome://stylishmod/content/symbol.xul) {
+  menupopup {
+    -moz-appearance: none !important;
+  }
+  menupopup > menuitem {
+    text-align: left !important;
+  }
+  menuitem[label="Undo"] {
+    list-style-image: url(menuitems.png) !important;
+    -moz-image-region: rect(0px 16px 16px 0) !important;
+  }
+  menuitem[label="Cut"] {
+    list-style-image: url(menuitems.png) !important;
+    -moz-image-region: rect(0px 32px 16px 16px) !important;
+  }
+  menuitem[label="Copy"] {
+    list-style-image: url(menuitems.png) !important;
+    -moz-image-region: rect(0px 48px 16px 32px) !important;
+  }
+  menuitem[label="Paste"] {
+    list-style-image: url(menuitems.png) !important;
+    -moz-image-region: rect(0px 64px 16px 48px) !important;
+  }
+  menuitem[label="Delete"] {
+    list-style-image: url(menuitems.png) !important;
+    -moz-image-region: rect(0px 80px 16px 64px) !important;
+  }
+  menuitem[label="Select All"] {
+    list-style-image: url(menuitems.png) !important;
+    -moz-image-region: rect(0px 96px 16px 80px) !important;
+  }
+}
+
+

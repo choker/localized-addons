@@ -1,0 +1,197 @@
+@-moz-document url-prefix(about:stylish-edit) {
+  #stylish-edit #tbtn2, 
+  #stylish-edit #tbtn3, 
+  #stylish-edit #tbtn4, 
+  #stylish-edit #tbtn5, 
+  #stylish-edit #tbtn6, 
+  #stylish-edit #tbtn7 {
+    color: #FFF !important; 
+  }
+  #stylish-edit #custom-insert-popup hbox:hover .button-icon {
+    opacity: 1 !important;
+  }
+  #stylish-edit #custom-insert-popup hbox:hover {
+    background: #343C45 !important;
+  }
+  #stylish-edit {
+    background: #14171A !important;
+    color: #FFF !important;
+  }
+  #stylish-edit .button,
+  #stylish-edit .textbox,
+  #stylish-edit .checkbox,
+  #stylish-edit #findbar #find-next,
+  #stylish-edit #findbar #find-previous {
+    -moz-appearance: none !important;
+    background: #1F252B !important;
+    border: 1px solid #666 !important;
+    border-radius: 3px !important;
+    color: #FFF !important;
+  }
+  #stylish-edit .button:hover,
+  #stylish-edit .textbox:hover,
+  #stylish-edit #wrap-lines:hover,
+  #stylish-edit #important-enabled:hover {
+    background: #343C45 !important;
+  }
+  #stylish-edit #name,
+  #stylish-edit #style-id,
+  #stylish-edit #character-count,
+  #stylish-edit #important-key,
+  #stylish-edit #line-number,
+  #stylish-edit #line-number-search,
+  #stylish-edit #scratchpad1,
+  #stylish-edit #scratchpad2,
+  #stylish-edit #findbar .findbar-textbox {
+    -moz-appearance: none;
+    background: #343C45 !important;
+    border: 1px solid #666 !important;
+    color: #FFF !important;
+  }
+  #stylish-edit #toggler-popup {
+    -moz-appearance: none !important;
+    background: #14171A !important;
+    border: 1px solid #666 !important;
+    color: #FFF !important;
+  }
+  #stylish-edit #sourceeditor {
+    border: 1px solid #666 !important;
+  }
+  #stylish-edit #findbar #find-next .toolbarbutton-icon {
+    -moz-image-region: auto !important;
+    list-style-image: url(arrow-dn.png) !important;
+  }
+  #stylish-edit #findbar #find-previous .toolbarbutton-icon {
+    -moz-image-region: auto !important;
+    list-style-image: url(arrow-up.png) !important;
+  }
+  #stylish-edit #findbar #find-next:not([disabled]):hover,
+  #stylish-edit #findbar #find-previous:not([disabled]):hover {
+    background: #343C45 !important;
+  }
+  #internal-code {
+    padding: 0 !important;
+  }
+  #internal-code .textbox-textarea {
+    -moz-appearance: none !important;
+    background: #222 !important; 
+    border: 1px solid #666 !important;
+    color: #FFF !important;
+  }
+  .radio {
+    -moz-appearance: none !important;
+  }
+  .radio .radio-check-box1 {
+    display: none !important;
+  }
+  .radio .radio-label-box {
+    margin-top: -2px !important;
+  }
+  .radio {
+    background: url(off.png) no-repeat !important;
+    padding-left: 16px !important;
+  }
+  .radio[selected] {
+    background: url(on.png) no-repeat !important;
+    padding-left: 16px !important;
+  }
+}
+
+@-moz-document url(chrome://stylishmod/content/position.xul) {
+  #position-dialog {
+    -moz-appearance: none !important;
+    background: #14171A !important;
+    color: #FFF !important;
+  }
+  #position-dialog * {
+    -moz-appearance: none !important;
+  }
+  #position-dialog .groupbox {
+    border: 1px solid #666 !important;
+    border-radius: 3px !important;
+  }
+  #position-dialog .caption {
+    background: #14171A !important;
+    color: #FFF !important;
+  }
+  #position-dialog hbox > hbox {
+    border: 1px solid transparent !important;
+  }
+  #position-dialog button,
+  #position-dialog .label,
+  #position-dialog .textbox {
+    background: #1F252B !important;
+    border: 1px solid #666 !important;
+    border-radius: 3px !important;
+    color: #FFF !important;
+  }
+  #position-dialog button:hover,
+  #position-dialog .label:not([disabled]):hover {
+    background: #343C45 !important;
+  }
+  .disabled {
+    opacity: .4 !important;
+  }
+}
+
+@-moz-document url(chrome://stylishmod/content/custom.xul) {
+  #custom-dialog {
+    -moz-appearance: none !important;
+    background: #14171A !important;
+    color: #FFF !important;
+  }
+  #custom-dialog button,
+  #custom-dialog textbox,
+  #custom-dialog .textarea {
+    -moz-appearance: none !important;
+    background: #1F252B !important;
+    border: 1px solid #666 !important;
+    border-radius: 3px !important;
+    color: #FFF !important;
+  }
+  #custom-dialog button:hover {
+    background: #343C45 !important;
+  }
+}
+
+@-moz-document url(chrome://stylishmod/content/symbol.xul) {
+  #symbol-dialog {
+    -moz-appearance: none !important;
+    background: #14171A !important;
+    color: #FFF !important;
+  }
+  #symbol-dialog button,
+  #symbol-dialog textbox {
+    -moz-appearance: none !important;
+    background: #1F252B !important;
+    border: 1px solid #666 !important;
+    border-radius: 3px !important;
+    color: #FFF !important;
+  }
+  #symbol-dialog button:hover {
+    background: #343C45 !important;
+  }
+}
+
+@-moz-document url-prefix(about:stylish-edit), 
+url(chrome://stylishmod/content/position.xul), 
+url(chrome://stylishmod/content/custom.xul),
+url(chrome://stylishmod/content/symbol.xul) {
+/*
+  ::-moz-selection {
+    -moz-appearance: none !important;
+    background: #FFF !important;
+    color: #000 !important;
+  }
+*/
+  menupopup {
+    -moz-appearance: none !important;
+    background: #14171A !important;
+    border: 1px solid #666 !important;
+    color: #FFF !important;
+  }
+  menupopup > menuitem {
+    color: #FFF !important;
+    padding: 3px !important;
+  }
+}

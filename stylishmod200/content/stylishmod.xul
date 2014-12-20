@@ -1,0 +1,252 @@
+<?xml version='1.0'?>
+<?xml-stylesheet href='chrome://global/skin/' type='text/css'?>
+<?xml-stylesheet href='chrome://stylish/skin/edit.css' type='text/css'?>
+<?xml-stylesheet href='chrome://browser/skin/devtools/common.css' type='text/css'?>
+<?xml-stylesheet href='chrome://stylishmod/skin/stylishmod.css' type='text/css'?>
+<?xul-overlay href='chrome://global/content/editMenuOverlay.xul'?>
+<!DOCTYPE window [
+  <!ENTITY % edit SYSTEM 'chrome://stylish/locale/edit.dtd'>
+  <!ENTITY % internaledit SYSTEM 'chrome://global/locale/editMenuOverlay.dtd'>
+  <!ENTITY % stylishmod SYSTEM 'chrome://stylishmod/locale/stylishmod.dtd'>
+  %edit;
+  %internaledit;
+  %stylishmod;
+]>
+
+<window id='stylish-edit' onload='stylish_mod.init();' xmlns='http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul' xmlns:html='http://www.w3.org/1999/xhtml'>
+
+  <html:link rel='icon' href='chrome://stylish/skin/16.png' style='display:none'/>
+
+  <script type='application/javascript' src='chrome://global/content/globalOverlay.js'/>
+  <script type='application/javascript' src='chrome://global/locale/editMenuOverlay.js'/>
+  <script type='application/javascript' src='chrome://stylish/content/edit.js'/>
+  <script type='application/javascript' src='chrome://stylish/content/frame-utils.js'/>
+  <script type='application/javascript' src='chrome://stylish/content/common.js'/>
+  <script type='application/javascript' src='chrome://itsalltext/content/API.js'/>
+  <script type='application/javascript' src='chrome://stylishmod/content/stylishmod.js'/>
+
+  <stringbundle id='strings' src='chrome://stylish/locale/edit.properties'/>
+
+  <keyset>
+    <key id='save-key' modifiers='control' key='S' oncommand='save()'/>
+    <key id='find-key' modifiers='control' key='F' oncommand='document.getElementById("findbar").open(); document.getElementById("findbar")._findField.focus()'/>
+  </keyset>
+
+  <commandset id='editMenuCommands'/>
+
+  <menupopup id='sourceeditor-context'>
+    <menuitem id='menu_undo' class='menuitem-iconic'/>
+    <menuitem id='menu_cut' class='menuitem-iconic'/>
+    <menuitem id='menu_copy' class='menuitem-iconic'/>
+    <menuitem id='menu_paste' class='menuitem-iconic'/>
+    <menuitem id='menu_delete' class='menuitem-iconic'/>
+    <!-- <menuitem id='menu_selectAll' class='menuitem-iconic' onclick='codeElementWrapper.setSelectionRange(0, codeElementWrapper.value.length)'/> -->
+    <menuitem id='menu_selectAll' class='menuitem-iconic' command='cmd_selectAll'/>
+  </menupopup>
+
+  <vbox id='main-area' flex='1'>
+    <button id='check-for-errors-button' class='button' label='&checkforerrors;' tooltiptext='&checkforerrors;' oncommand='checkForErrors()' onmouseover='checkErrors()' style='display:none;'/>
+    <button id='itsalltext' class='button' itsalltext-control='internal-code' itsalltext-extension='.css' style='display:none;'/>
+    <button id='save-button' class='button' tooltiptext='&save;' oncommand='save()' style='display:none;'/>
+    <button id='preview-button' class='button' tooltiptext='&preview;' oncommand='checkForErrors(); preview()' style='display:none;'/>
+    <hbox id='toolbar1' class='hbox' align='center' label='1'/>
+    <hbox id='toolbar2' class='hbox toolbar' align='center'>
+      <button id="tbtn2" class='button' label='2.' style='display: none;'/>
+    </hbox>
+    <hbox id='toolbar3' class='hbox toolbar' align='center'>
+      <button id="tbtn2" class='button' label='3.' style='display: none;'/>
+    </hbox>
+    <hbox id='toolbar4' class='hbox toolbar' align='center'>
+      <button id="tbtn2" class='button' label='4.' style='display: none;'/>
+    </hbox>
+    <hbox id='toolbar5' class='hbox toolbar' align='center'>
+      <button id="tbtn2" class='button' label='5.' style='display: none;'/>
+    </hbox>
+    <hbox id='toolbar6' class='hbox toolbar' align='center' style='-moz-box-ordinal-group: 1001;'>
+      <button id="tbtn2" class='button' label='6.' style='display: none;'/>
+    </hbox>
+    <vbox id='errors' style='-moz-box-ordinal-group: 1002; display:none'/>
+    <hbox id='toolbar7' class='hbox toolbar' align='center' style='-moz-box-ordinal-group: 1003;'>
+      <button id="tbtn7" class='button' label='7.' style='display: none;'/>
+    </hbox>
+    <button id='add-tag' class='button move' tooltiptext='&addtag;' oncommand='addTag()'/>
+    <hbox id='auto-important' class='move' align='center'>
+      <textbox id='important-key' class='textbox' maxlength='1' width='25' onkeypress='getKeyCode(event.which);' context='sourceeditor-context'/>
+      <checkbox id='important-enabled' class='checkbox' oncommand='changeImportantEnabled(this.checked)'/>
+    </hbox>
+    <button id='blank-style' class='button move' tooltiptext='&blank;' oncommand='blankStyle()'/>
+    <hbox id='bytes' class='move' align='center'>
+      <label id='count-label' class='label'/>
+      <textbox id='character-count' class='textbox' maxlength='6' size='6' placeholder='&count;'/>
+    </hbox>
+    <vbox id='clear1' class='vbox move'><button id='clear1btn' class='button' tooltiptext='&clear1;' oncommand='clearPad(1)'/></vbox>
+    <vbox id='clear2' class='vbox move'><button id='clear2btn' class='button' tooltiptext='&clear2;' oncommand='clearPad(2)'/></vbox>
+    <button id='clone-style' class='button move' tooltiptext='&clone;' oncommand='cloneStyle()'/>
+    <button id='color-format' class='button move' tooltiptext='&color;' oncommand='formatColor()'/>
+    <button id='comment-text' class='button move' tooltiptext='&comment;' oncommand='editText("Comment")'/>
+    <button id='comment-group' class='button move' tooltiptext='&commentgroup;' onclick='editText("CommentGroup", event.button)'/>
+    <button id='convert-class' class='button move' tooltiptext='&convertclass;' oncommand='editText("Class")'/>
+    <button id='convert-id' class='button move' tooltiptext='&convertid;' oncommand='editText("ID")'/>
+    <button id='copy' class='button move' tooltiptext='&copy;' onclick='copySelected()'/>
+    <button id='curly-bracket' class='button move' tooltiptext='&curly;' oncommand='editText("CurlyBracket")'/>
+    <hbox id='cursor' class='move' align='center' tooltiptext='&cursor;'>
+      <button id='cursor-at' class='button'/>
+      <textbox id='line-number' class='textbox' value='0:0' context='sourceeditor-context'/>
+    </hbox>
+    <button id='custom-insert' class='button move' tooltiptext='&inserttext;' type='menu' onclick='getInsert(event.button)'>
+      <menupopup id='custom-insert-popup' onpopupshowing='addMenu()' onpopuphiding='cutMenu()' flex='1'/>
+    </button>
+    <button id='cut' class='button move' tooltiptext='&cut;' onclick='cutSelected()'/>
+    <button id='export-style' class='button move' tooltiptext='&export;' oncommand='exportStyle()'/>
+    <button id='external-editor' class='button move' tooltiptext='&externaleditor;' onclick='externalEdit(event.button)'/>
+    <findbar id='findbar' class='move' browserid='internal-code' oninput='findText()'/>
+    <spacer id='flex1' class='flex move' flex='1'/>
+    <spacer id='flex2' class='flex move' flex='1'/>
+    <spacer id='flex3' class='flex move' flex='1'/>
+    <spacer id='flex4' class='flex move' flex='1'/>
+    <spacer id='flex5' class='flex move' flex='1'/>
+    <button id='go-to-end' class='button move' tooltiptext='&gotoend;' onclick='goToEnd();'/>
+    <button id='go-to-top' class='button move' tooltiptext='&gototop;' onclick='goToTop();'/>
+    <button id='insert' class='button move' tooltiptext='&insert;' type='menu'>
+      <menupopup id='insert-popup' class='menupopup'>
+        <menuitem id='insert-html' label='&htmlnamespace;' oncommand='insertCodeAtStart(CSSHTMLNS);'/>
+        <menuitem id='insert-xul' label='&xulnamespace;' oncommand='insertCodeAtStart(CSSXULNS);'/>
+        <menuitem id='insert-chrome-folder' label='&chromefolder;' oncommand='insertChromePath()'/>
+        <menuitem id='insert-data-uri' label='&dataURI;' oncommand='insertDataURI()'/>
+        <menuitem id='insert-agent-sheet' label='&agent;' oncommand='insertText(1)'/>
+      </menupopup>
+    </button>
+    <hbox id='line' class='hbox move' align='center'>
+      <button id='line-number-search-button' class='button' tooltiptext='&goto;' onclick='lineNumberSearchChoice(event.button, this.nextSibling.value, 13)'/>
+      <textbox id='line-number-search' class='textbox' size='6' ondragover='lineNumberSearchDrag(this, event)' onkeyup='lineNumberSearchType(this.value, event)' context='sourceeditor-context'/>
+    </hbox>
+    <button id='make-important' class='button move' tooltiptext='&make;' onclick='makeImportant()'/>
+    <button id='paste' class='button move' tooltiptext='&paste;' oncommand='pasteAll()'/>
+    <button id='pick-color' class='button move' type='menu' tooltiptext='&insertcolor;' onclick='getPicker()'>
+      <menupopup id='insert-color-popup' class='menupopup' style='opacity: 0;'>
+        <colorpicker id='colorpicker' onclick='chooseColor(event)' style='display: none;'/>
+        <button id='pick-color-rainbowpicker' style='display: none;'/>
+        <colorpicker id='rainbowpicker-detect' type='button' onchange='insertRainbowPickerColor(event)' style='display: none;'/>
+      </menupopup>
+    </button>
+    <button id='position' class='button move' tooltiptext='&position;' oncommand='openDialog("chrome://stylishmod/content/position.xul", "_blank", "resizable,alwaysRaised")'/>
+    <button id='preview' class='button move' tooltiptext='&preview;' oncommand='checkForErrors(); preview(); previewAlt()'/>
+    <button id='redo' class='button move' tooltiptext='&redo;' oncommand='undoRedo(this)'/>
+    <button id='removeXUL' class='button move' tooltiptext="&remove;" oncommand='editText("RemoveXUL")'/>
+    <button id='restore-down' class='button move' label='Restore' tooltiptext='&restoredown;' oncommand='restoreDown()'/>
+    <button id='restore-window' class='button move' label='Restore' tooltiptext='&restorewindow;' oncommand='restoreWindow()'/>
+    <button id='save-button-disabled' class='button move' tooltiptext='&savedisabled;' oncommand='saveClose(false)'/>
+    <button id='save-button-enabled' class='button move' tooltiptext='&saveenabled;' oncommand='saveClose(true)'/>
+    <button id='save-button-alt' class='button move' tooltiptext='&save;' oncommand='save(); onSave(event)'/>
+    <html:textarea id='scratchpad1' class='textarea move' persist='style' placeholder='&scratchpad1;' oninput='scratchPad(this)'
+      oncontextmenu='document.getElementById("sourceeditor-context").openPopup(null, "", event.pageX, event.pageY)'/>
+    <html:textarea id='scratchpad2' class='textarea move' persist='style' placeholder='&scratchpad2;' oninput='scratchPad(this)' 
+       oncontextmenu='document.getElementById("sourceeditor-context").openPopup(null, "", event.pageX, event.pageY)'/>
+    <button id='select' class='button move' tooltiptext='&select;' oncommand='selectAll()'/>
+    <separator id='spacer1' class='spacer move' flex='0'/>
+    <separator id='spacer2' class='spacer move' flex='0'/>
+    <separator id='spacer3' class='spacer move' flex='0'/>
+    <separator id='spacer4' class='spacer move' flex='0'/>
+    <separator id='spacer5' class='spacer move' flex='0'/>
+    <button id='settings' class='button move' tooltiptext='&settings;' type='menu'>
+      <menupopup id='options-popup' class='menupopup' flex='1' style='min-width: 350px'>
+        <label id='note' class='label' value='&note;'/>
+        <radiogroup id='darktheme' class='radiogroup' align='center' orient='horizontal' onclick='darkTheme(this)'>
+          <label id='dark-theme' class='label' value='&dark;'/>
+          <radio id='dark-on' class='radio' label='&on;' value='1'/>
+          <radio id='dark-off' class='radio' label='&off;' value='0'/>
+        </radiogroup>
+        <radiogroup id='switcheditor' class='radiogroup' align='center' orient='horizontal' onclick='switchEditor(this)'>
+          <label id='switch-editor' class='label' value='&editor;'/>
+          <radio id='orion' class='radio' label='&orion;' value='0'/>
+          <radio id='standard' class='radio' label='&standard;' value='1'/>
+        </radiogroup>
+        <radiogroup id='openeditor' class='radiogroup' align='center' orient='horizontal' oncommand='openEditor(this)'>
+          <label id='open-editor' class='label' value='&openeditor;'/>
+          <radio id='open-tab' class='radio' label='&opentab;' value='true'/>
+          <radio id='open-window' class='radio' label='&openwindow;' value='false'/>
+        </radiogroup>
+        <radiogroup id='scalegray' class='radiogroup' align='center' orient='horizontal' onclick='scaleGray(this)'>
+          <label id='gray' class='label' value='&grayscale;'/>
+          <radio id='gray-yes' class='radio' label='&yes;' value='yes'/>
+          <radio id='gray-no' class='radio' label='&no;' value='no'/>
+        </radiogroup>
+        <radiogroup id='icon-text' class='radiogroup' align='center' orient='horizontal' oncommand='buttonDisplay(this)'>
+          <label id='display' class='label' value='&buttons;'/>
+          <radio id='icon-only' class='radio' label='&icononly;' value='1'/>
+          <radio id='text-only' class='radio' label='&textonly;' value='2'/>
+          <radio id='icon-text' class='radio' label='&both;' value='3'/>
+        </radiogroup>
+        <radiogroup id='errorstop' class='radiogroup' align='center' orient='horizontal' oncommand='errorDisplay(this)'>
+          <label id='' class='label' value='&errors;'/>
+          <radio id='' class='radio' label='&top;' value='1'/>
+          <radio id='' class='radio' label='&bottom;' value='0'/>
+        </radiogroup>
+        <radiogroup id='removefocus' class='radiogroup' align='center' orient='horizontal' onclick='onRadio(this)'>
+          <label id='remove-focus' class='label' value='&focus;'/>
+          <radio id='focus-off' class='radio' label='&true;' value='true'/>
+          <radio id='focus-on' class='radio' label='&false;' value='false'/>
+        </radiogroup>
+        <hbox class='hbox' align='center'>
+          <label class='label' value='&external;'/>
+          <button id='setEditor' class='button' label='&browse;' oncommand='setEditor()'/>
+          <label id='set-editor' class='label' style='pointer-events: none;'/>
+        </hbox>
+        <label id='profile' class='label' value='&profile;' style='margin-bottom: 6px; pointer-events: none;'/>
+        <menuseparator id='alert-separator' class='separator'/>
+        <label id='alert-hide' class='label' value='&hide;'/>
+        <radiogroup id='windowalert' class='radiogroup' align='center' orient='horizontal' onclick='alertDialog(this)'>
+          <label id='window-alert' class='label' value='&closing;'/>
+          <radio id='window-alert-true' class='radio' label='&true;' value='true'/>
+          <radio id='window-alert-false' class='radio' label='&default;' value='false'/>
+        </radiogroup>
+        <radiogroup id='editoralert' class='radiogroup' align='center' orient='horizontal' onclick='alertDialog(this)'>
+          <label id='editor-alert' class='label' value='&switching;'/>
+          <radio id='editor-alert-true' class='radio' label='&true;' value='true'/>
+          <radio id='editor-alert-false' class='radio' label='&default;' value='false'/>
+        </radiogroup>
+        <hbox class='hbox' align='center'>
+          <label id='settings-prefs' class='label' value='&settingspref;'/>
+          <button id='export-prefs' class='button' label='Export Prefs' tooltiptext='&exportpref;' oncommand='exportPrefs()'/>
+          <button id='import-prefs' class='button' label='Import Prefs' tooltiptext='&importpref;' oncommand='importPrefs()'/>
+        </hbox>
+      </menupopup>
+    </button>
+    <spacer id='space1' class='space move' flex='0'/>
+    <spacer id='space2' class='space move' flex='0'/>
+    <button id='sq-bracket' class='button move' tooltiptext='&square;' oncommand='editText("Bracket")'/>
+    <hbox id='style-name' class='hbox move' align='center' flex='1'>
+      <label id='name-label' class='label' control='name'></label>
+      <textbox id='name' class='textbox' oninput='updateTitle()' flex='1' context='sourceeditor-context'/>
+    </hbox>
+    <hbox id='styleid' class='hbox move' align='center'>
+      <label id='style-id-label' class='label'/>
+      <textbox id='style-id' class='textbox' size='2'/>
+    </hbox>
+    <button id='style-page' class='button move' tooltiptext='&page;' onclick='userstylesPage(event);' tooltip=''/>
+    <button id='togglebars' class='button move' type='menu' tooltiptext='&togglebars;'>
+      <menupopup id='toggler-popup' onpopupshowing='showNumber()' onpopuphiding='hideNumber()'>
+        <button id='togglebar2' class='button togger' label='Toolbar 2' oncommand='onToggle(this)' pack='start'/>
+        <button id='togglebar3' class='button togger' label='Toolbar 3' oncommand='onToggle(this)' pack='start'/>
+        <button id='togglebar4' class='button togger' label='Toolbar 4' oncommand='onToggle(this)' pack='start'/>
+        <button id='togglebar5' class='button togger' label='Toolbar 5' oncommand='onToggle(this)' pack='start'/>
+        <button id='togglebar6' class='button togger' label='Toolbar 6' oncommand='onToggle(this)' pack='start'/>
+        <button id='togglebar7' class='button togger' label='Toolbar 7' oncommand='onToggle(this)' pack='start'/>
+      </menupopup>
+    </button>
+    <button id='undo' class='button move' tooltiptext='&undo;' oncommand='undoRedo(this)'/>
+    <button id='undo-all' class='button move' tooltiptext='&undoall;' oncommand='undoAll()'/>
+    <button id='unobfuscate' class='button move' tooltiptext='&unobfuscate;' onclick='unobfuscate(); getCharCount();'/>
+    <button id='unpreview' class='button move' tooltiptext='&unpreview;' oncommand='unPreview(this)'/>
+    <hbox id='update' class='hbox move' align='center' flex='1'>
+      <checkbox id='update-check' label='&checkupdate;' tooltiptext='&checkupdate;' oncommand='updateCheckToggle()'/>
+      <textbox id='update-url' class='textbox' flex='1' style='padding-left: 2px !important;' onchange='updateUrlCheck()'/>
+    </hbox>
+    <checkbox id='wrap-lines' class='checkbox move' oncommand='changeWordWrap(this.checked)'/>
+    <deck id='editor' flex='1'>
+      <textbox id='internal-code' multiline='true' flex='1' onkeydown='codeElKeyDown(event.which, this)' onkeyup='getCharCount()' onmousedown='lineNumber(this)' 
+        onfocus='lineNumber(this); getCharCount()' onselect='lineNumber(this); getCharCount()' context='sourceeditor-context'/>
+      <hbox id='sourceeditor' flex='1' onkeyup='getCharCount();'/>
+    </deck>
+  </vbox>
+</window>

@@ -1,0 +1,10 @@
+@-moz-document url-prefix(about:stylish-edit) {
+  #stylish-edit #tbtn2, 
+  #stylish-edit #tbtn3, 
+  #stylish-edit #tbtn4, 
+  #stylish-edit #tbtn5, 
+  #stylish-edit #tbtn6, 
+  #stylish-edit #tbtn7 {
+    display: -moz-box !important; 
+  }
+}

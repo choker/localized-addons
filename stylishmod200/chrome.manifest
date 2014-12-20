@@ -1,0 +1,7 @@
+content	stylishmod				content/			
+skin		stylishmod				classic/1.0			skin/
+locale	stylishmod				en-US					locale/en-US/
+locale  stylishmod              zh-CN                   locale/zh-CN/
+override	chrome://stylish/content/edit.xul				chrome://stylishmod/content/stylishmod.xul
+override	chrome://global/content/bindings/findbar.xml		chrome://stylishmod/content/stylishmod.xml
+override	chrome://stylish/content/addon.xbl				chrome://stylishmod/content/stylishmod.xbl

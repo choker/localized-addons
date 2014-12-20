@@ -1,0 +1,54 @@
+<?xml version='1.0'?>
+<?xml-stylesheet href='chrome://global/skin/' type='text/css'?>
+<?xml-stylesheet href='chrome://stylishmod/skin/stylishmod.css' type='text/css'?>
+<?xul-overlay href='chrome://global/content/editMenuOverlay.xul'?>
+<!DOCTYPE window [<!ENTITY % stylishmod SYSTEM 'chrome://stylishmod/locale/stylishmod.dtd'> %stylishmod;]>
+<dialog id='custom-dialog' xmlns='http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul' xmlns:html='http://www.w3.org/1999/xhtml' windowtype='custom:dialog' 
+  onload='onLoad()' title='Add / Remove Text' buttons='accept' ondialogaccept='onAccept()' width='610' height='440' persist='width,height,screenX,screenY'>
+  <html:link rel='icon' href='chrome://stylish/skin/16.png' style='display:none'/>
+  <script type='application/javascript' src='chrome://global/content/globalOverlay.js'/>
+  <script type='application/javascript' src='chrome://stylishmod/content/stylishmod.js'/>
+  <commandset id='editMenuCommands'/>
+  <menupopup id='sourceeditor-context'>
+    <menuitem id='menu_undo' class='menuitem-iconic'/>
+    <menuitem id='menu_cut' class='menuitem-iconic'/>
+    <menuitem id='menu_copy' class='menuitem-iconic'/>
+    <menuitem id='menu_paste' class='menuitem-iconic'/>
+    <menuitem id='menu_delete' class='menuitem-iconic'/>
+    <!-- <menuitem id='menu_selectAll' class='menuitem-iconic' onclick='codeElementWrapper.setSelectionRange(0, codeElementWrapper.value.length)'/> -->
+    <menuitem id='menu_selectAll' class='menuitem-iconic' command='cmd_selectAll'/>
+  </menupopup>
+  <vbox>
+    <hbox align='center'>
+      <label id='addremove' value='&addremove;'/>
+      <label value='Popup Max Width :'/>
+      <textbox id='popupwidth' class='textbox' oninput='onWidth(this)'/>
+    </hbox>
+    <html:textarea id='insert-textbox' class='textarea' persist='style' placeholder='Add/Remove Text' oninput='onInsert(this)' 
+      oncontextmenu='document.getElementById("sourceeditor-context").openPopup(null, "", event.pageX, event.pageY)'/>
+  </vbox>
+  <script type='application/x-javascript'>
+    <![CDATA[
+      var prefs2 = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefService).getBranch('extensions.stylishmod.');
+      var id = prefs2.getIntPref('id'), wm = mrw('stylishEdit' + id);
+      function onLoad() {
+        var str = prefs2.getCharPref('insert-text');
+        var tb = document.getElementById('insert-textbox');
+        tb.value = str;
+        document.getElementById('popupwidth').value = prefs2.getCharPref('custom-insert-popup');
+      }
+      function onInsert(e) {
+        e.value = e.value.replace(/\s+<>|<>\s+/g, '<>');
+      }
+      function onWidth(e) {
+        e.value = e.value;
+        prefs2.setCharPref('custom-insert-popup', e.value);
+      }
+      function onAccept() {
+        var tb = document.getElementById('insert-textbox');
+        prefs2.setCharPref('insert-text', tb.value);
+      }
+    ]]>
+  </script>
+</dialog>
+

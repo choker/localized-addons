@@ -1,0 +1,77 @@
+<?xml version='1.0'?>
+<?xml-stylesheet href='chrome://global/skin/' type='text/css'?>
+<?xml-stylesheet href='chrome://stylishmod/skin/stylishmod.css' type='text/css'?>
+<?xul-overlay href='chrome://global/content/editMenuOverlay.xul'?>
+<!DOCTYPE window [<!ENTITY % stylishmod SYSTEM 'chrome://stylishmod/locale/stylishmod.dtd'>%stylishmod;]>
+<dialog id='symbol-dialog' xmlns='http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul' windowtype='symbol:dialog' 
+  onload='onLoad()' title='Add / Remove Symbols' buttons='accept,cancel' ondialogaccept='onAccept()' persist='width,height,screenX,screenY'>
+  <script type='application/javascript' src='chrome://global/content/globalOverlay.js'/>
+  <script type='application/javascript' src='chrome://stylishmod/content/stylishmod.js'/>
+  <commandset id='editMenuCommands'/>
+  <menupopup id='sourceeditor-context'>
+    <menuitem id='menu_undo' class='menuitem-iconic'/>
+    <menuitem id='menu_cut' class='menuitem-iconic'/>
+    <menuitem id='menu_copy' class='menuitem-iconic'/>
+    <menuitem id='menu_paste' class='menuitem-iconic'/>
+    <menuitem id='menu_delete' class='menuitem-iconic'/>
+    <!-- <menuitem id='menu_selectAll' class='menuitem-iconic' onclick='codeElementWrapper.setSelectionRange(0, codeElementWrapper.value.length)'/> -->
+    <menuitem id='menu_selectAll' class='menuitem-iconic' command='cmd_selectAll'/>
+  </menupopup>
+  <vbox>
+    <hbox align='center'>
+      <label id='symbolsLabel' class='label' value='&symbolnote;'/>
+    </hbox>
+    <hbox align='center'>
+      <label id='symbol1Label' class='label' value='&symbol1;'/>
+      <textbox id='symbol1' class='textbox' context='sourceeditor-context' oninput='onInput(this)'/>
+      <button id='symbol1Btn' class='button' tooltiptext='&symbolbutton;' onclick='onView(this)'/>
+    </hbox>
+    <hbox align='center'>
+      <label id='symbol2Label' class='label' value='&symbol2;'/>
+      <textbox id='symbol2' class='textbox' context='sourceeditor-context' oninput='onInput(this)'/>
+      <button id='symbol2Btn' class='button' tooltiptext='&symbolbutton;' onclick='onView(this)'/>
+    </hbox>
+    <hbox align='center'>
+      <label id='symbol3Label' class='label' value='&symbol3;'/>
+      <textbox id='symbol3' class='textbox' context='sourceeditor-context' oninput='onInput(this)'/>
+      <button id='symbol3Btn' class='button' tooltiptext='&symbolbutton;' onclick='onView(this)'/>
+    </hbox>
+  </vbox>
+  <script type='application/x-javascript'>
+    <![CDATA[
+      var prefs2 = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefService).getBranch('extensions.stylishmod.');
+      function onLoad() {
+        var tb = document.getElementsByClassName('textbox'), bn = document.getElementsByClassName('button');
+        for (var i = 0; i < tb.length; i++) tb[i].value = prefs2.getCharPref(tb[i].id);
+        for (var i = 0; i < bn.length; i++) {
+          var btn = bn[i].id.split("Btn")[0];
+          var array = [];
+          var xxx = prefs2.getCharPref(btn).split(',');
+          for (var j in xxx) array.push(unescape('%u' + xxx[j]));
+          var sym = array.join();
+          sym = sym.replace(/,/g, '');
+          document.getElementById(bn[i].id).label = sym;
+      } }
+      function onInput(e) {
+        e.value = e.value.replace(/\s+/g, '');
+      }
+      function onView(e) {
+        var sym = document.getElementById(e.id.split('Btn')[0]).value.replace(/^,/, '').replace(/,$/, '');
+        document.getElementById(e.id.split('Btn')[0]).value = sym;
+        var array = [];
+        var xxx = sym.split(',');
+        for (var i in xxx) array.push(unescape('%u' + xxx[i]));
+        sym = array.join();
+        sym = sym.replace(/,/g, '');
+        document.getElementById(e.id).label = sym;
+      }
+      function onAccept() {
+        var tb = document.getElementsByClassName('textbox');
+        for (var i = 0; i < tb.length; i++) {
+          var sym = document.getElementById(tb[i].id).value;
+          prefs2.setCharPref(tb[i].id, sym);
+        }
+      }
+    ]]>
+  </script>
+</dialog>

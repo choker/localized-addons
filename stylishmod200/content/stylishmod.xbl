@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE bindings [<!ENTITY % commonDTD SYSTEM "chrome://stylish/locale/common.dtd">%commonDTD;]>
+<bindings xmlns="http://www.mozilla.org/xbl" xmlns:xbl="http://www.mozilla.org/xbl" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <binding id="addon-item" extends="chrome://mozapps/content/extensions/extensions.xml#addon-generic">
+    <implementation>
+      <method name="openEdit">
+        <body>
+          var win = Components.classes["@mozilla.org/embedcomp/window-watcher;1"].getService(Components.interfaces.nsIWindowWatcher).activeWindow;
+          stylishCommon.openEditForId(this.mAddon.id, win);
+        </body>
+      </method>
+    </implementation>
+  </binding>
+  <binding id="addon-buttons">
+    <content>
+      <xul:button label="&editstyle;" class="addon-control" onmousedown="document.getBindingParent(document.getBindingParent(this)).openEdit();"/>
+      <xbl:children/>
+    </content>
+    <implementation/>
+  </binding>
+  <binding id="addon-uninstalled-buttons">
+    <content>
+      <xbl:children/>
+      <xul:button anonid="report-style" label="&reportstyle;" class="button-link" oncommand="this.nextSibling.style.display = '';this.style.display = 'none';stylishManageAddons.reportStyle(document.getBindingParent(document.getBindingParent(this)).mAddon.id);"/>
+      <xul:label anonid="reported-style" value="&reportedstyle;" style="display: none"/>
+      <xul:spacer flex="5000"/>
+    </content>
+    <implementation/>
+  </binding>
+</bindings>

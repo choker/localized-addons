@@ -1,0 +1,8 @@
+@-moz-document url-prefix(about:stylish-edit) {
+  #stylish-edit .button .button-icon {
+    display: -moz-box;
+  }
+  #stylish-edit .button .button-text {
+    display: -moz-box;
+  }
+}

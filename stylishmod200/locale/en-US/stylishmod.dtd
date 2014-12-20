@@ -1,0 +1,103 @@
+<!ENTITY accept 'Accept'>
+<!ENTITY addremove 'Separate multiple entries with &lt;&gt;'>
+<!ENTITY addtag 'Add Tag'>
+<!ENTITY agent '/* AGENT_SHEET */'>
+<!ENTITY autoimportant 'Auto Important'>
+<!ENTITY background 'background: url("") !important;'>
+<!ENTITY bars 'Bars'>
+<!ENTITY blank 'Blank Style'>
+<!ENTITY both 'Both'>
+<!ENTITY bottom 'Default (bottom)'>
+<!ENTITY browse 'Browse'>
+<!ENTITY buttons 'Buttons :'>
+<!ENTITY bytes '# of Bytes'>
+<!ENTITY caption '[Display] [Editable Button Name] [Toolbar#(1-7),Position#(1-999) i.e. 3,11]'>
+<!ENTITY check 'Check Errors'>
+<!ENTITY checkupdate 'Check Update'>
+<!ENTITY class 'Convert .abc to [class="abc"]'>
+<!ENTITY clear 'Clear'>
+<!ENTITY clearA 'Clear1'>
+<!ENTITY clearB 'Clear2'>
+<!ENTITY clear1 'Clear Scratchpad 1 text field'>
+<!ENTITY clear2 'Clear Scratchpad 2 text field'>
+<!ENTITY clone 'Clone Style'>
+<!ENTITY closing 'Closing Window :'>
+<!ENTITY color 'Color Format'>
+<!ENTITY comment 'Comment'>
+<!ENTITY commentgroup 'Comment Group (Middle-click to edit symbols)'>
+<!ENTITY convertclass 'Convert Class'>
+<!ENTITY convertid 'Convert ID'>
+<!ENTITY copy 'Copy'>
+<!ENTITY count 'Count'>
+<!ENTITY curly 'Curly Brackets { }'>
+<!ENTITY cursor 'Cursor At'>
+<!ENTITY cut 'Cut'>
+<!ENTITY dark 'Dark Theme :'>
+<!ENTITY default 'Default'>
+<!ENTITY down 'Dn'>
+<!ENTITY editor 'Editor :'>
+<!ENTITY external 'External Editor :'>
+<!ENTITY externaleditor 'External Editor'>
+<!ENTITY errors 'Errors Box :'>
+<!ENTITY export 'Export Style'>
+<!ENTITY exportpref 'Export current settings to file'>
+<!ENTITY false 'False'>
+<!ENTITY focus 'Remove focus for inserted text :'>
+<!ENTITY goto 'Go To Line #'>
+<!ENTITY gotoend 'Go To End'>
+<!ENTITY gototop 'Go To Top'>
+<!ENTITY grayscale 'Grayscale Icons :'>
+<!ENTITY hide 'Hide Alert Dialog "Are you sure?" when'>
+<!ENTITY icononly 'Icon only'>
+<!ENTITY id 'Convert #abc to [id="abc"]'>
+<!ENTITY important '!important;'>
+<!ENTITY importpref 'Import saved settings from file'>
+<!ENTITY insertcolor 'Insert Color'>
+<!ENTITY inserttext 'Insert Text (Middle-click for Add/Remove text)'>
+<!ENTITY make 'Make Important'>
+<!ENTITY name 'Name'>
+<!ENTITY no 'No'>
+<!ENTITY note 'Note :  Apply settings prior to editing'>
+<!ENTITY openeditor 'Open Editor in :'>
+<!ENTITY opentab 'Tab'>
+<!ENTITY openwindow 'Window'>
+<!ENTITY orion 'Orion'>
+<!ENTITY off 'Off'>
+<!ENTITY on 'On'>
+<!ENTITY page 'Style Page'>
+<!ENTITY paste 'Paste'>
+<!ENTITY preview 'Preview'>
+<!ENTITY profile 'Saves files in profile folder into folder named stylishmod-styles'>
+<!ENTITY position 'Position'>
+<!ENTITY redo 'Redo'>
+<!ENTITY remove 'Remove XUL'>
+<!ENTITY restoredown 'Restore Down'>
+<!ENTITY restorewindow 'Restore Window'>
+<!ENTITY savedisabled 'Save/Disabled'>
+<!ENTITY saveenabled 'Save/Enabled'>
+<!ENTITY scratchpad1 'Scratchpad 1 (retains text)'>
+<!ENTITY scratchpad2 'Scratchpad 2 (clears on close)'>
+<!ENTITY select 'Select All'>
+<!ENTITY settings 'Settings'>
+<!ENTITY settingspref 'Settings :'>
+<!ENTITY square 'Square Brackets [ ]'>
+<!ENTITY standard 'Standard'>
+<!ENTITY styleid 'ID'>
+<!ENTITY switch 'Switch Editor :'>
+<!ENTITY switching 'Switching Editors :'>
+<!ENTITY symbol1 'Symbol 1'>
+<!ENTITY symbol2 'Symbol 2'>
+<!ENTITY symbol3 'Symbol 3'>
+<!ENTITY symbolbutton 'Click to preview selection'>
+<!ENTITY symbolnote 'All 3 symbols must be unique from each other'>
+<!ENTITY togglebars 'Toggle Toolbars'>
+<!ENTITY top 'Fixed (top)'>
+<!ENTITY textonly 'Text only'>
+<!ENTITY true 'True'>
+<!ENTITY undo 'Undo'>
+<!ENTITY undoall 'Undo All'>
+<!ENTITY unobfuscate 'Make long one line codes readable'>
+<!ENTITY unpreview 'Un-Preview'>
+<!ENTITY up 'Up'>
+<!ENTITY yes 'Yes'>
+
