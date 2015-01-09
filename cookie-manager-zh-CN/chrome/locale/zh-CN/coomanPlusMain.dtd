@@ -1,0 +1,149 @@
+<!ENTITY		tree.picker																							"显示/隐藏列">
+
+<!ENTITY		WindowedCookieEditor.Options.label											"选项">
+<!ENTITY		WindowedCookieEditor.Options.accesskey									"O">
+<!ENTITY		WindowedCookieEditor.FirefoxCM.label										"Firefox自带Cookies查看器">
+<!ENTITY		WindowedCookieEditor.FirefoxCM.accesskey								"N">
+<!ENTITY		WindowedCookieEditor.close.label												"关闭">
+<!ENTITY		WindowedCookieEditor.toolbox_box.selectAllShown.label		"选择所有">
+<!ENTITY		WindowedCookieEditor.toolbox_box.invertSelection.label	"反向选择">
+<!ENTITY		WindowedCookieEditor.toolbox_box.edit.label							"编辑">
+<!ENTITY		WindowedCookieEditor.toolbox_box.add.label							"添加">
+<!ENTITY		WindowedCookieEditor.toolbox_box.delete.label						"删除">
+<!ENTITY		WindowedCookieEditor.toolbox_box.delete.block.label			"删除并阻挡">
+<!ENTITY		WindowedCookieEditor.toolbox_box.edit.accesskey					"E">
+<!ENTITY		WindowedCookieEditor.toolbox_box.add.accesskey					"A">
+<!ENTITY		WindowedCookieEditor.toolbox_box.delete.accesskey				"D">
+<!ENTITY		WindowedCookieEditor.toolbox_box.delete.block.accesskey	"K">
+<!ENTITY		WindowedCookieEditor.toolbox_box.select.tooltip 				"选择全部/反选(右键单击)">
+<!ENTITY		WindowedCookieEditor.filter.label 											"查找">
+<!ENTITY		WindowedCookieEditor.filter.name 												"名称">
+<!ENTITY		WindowedCookieEditor.filter.host 												"主机">
+<!ENTITY		WindowedCookieEditor.filter.content 										"内容">
+<!ENTITY		WindowedCookieEditor.filter.case												"区分大小写">
+<!ENTITY		WindowedCookieEditor.cookiesPermissions.label						"Cookies许可">
+
+<!ENTITY		export.button																						"导出">
+<!ENTITY		export.button.accesskey																	"X">
+<!ENTITY		export.clipboard																				"复制到剪贴板">
+<!ENTITY		export.clipboard.accesskey															"C">
+<!ENTITY		export.file																							"保存至文件">
+<!ENTITY		export.file.accesskey																		"F">
+<!ENTITY		export.success																					"文件成功保存。">
+
+<!ENTITY		backup																									"备份">
+<!ENTITY		backup.accesskey																				"B">
+<!ENTITY		backup.button																						"备份/恢复">
+<!ENTITY		backup.button.accesskey																	"B">
+<!ENTITY		backup.selected																					"备份已选中项">
+<!ENTITY		backup.selected.accesskey																"B">
+<!ENTITY		backup.all																							"备份所有">
+<!ENTITY		backup.all.accesskey																		"A">
+<!ENTITY		backup.corrupted																				"文件已损坏">
+<!ENTITY		backup.protected																				"文件受密码保护">
+<!ENTITY		restore.all																							"恢复所有">
+<!ENTITY		restore.all.accesskey																		"R">
+<!ENTITY		restore.selected																				"恢复选中项">
+<!ENTITY		restore.selected.accesskey															"E">
+<!ENTITY		restore.file.open																				"打开文件">
+<!ENTITY		restore.success																					"成功恢复 # cookie(s)">
+<!ENTITY		restore.none																						"无cookies被恢复">
+
+<!ENTITY		button.edit.accesskey																		"E">
+<!ENTITY		button.add.accesskey																		"A">
+<!ENTITY		button.invert.accesskey																	"I">
+<!ENTITY		button.all.accesskey																		"A">
+<!ENTITY		button.delete.accesskey																	"D">
+
+<!ENTITY		cookiename.label																				"名称">
+<!ENTITY		cookievalue.label																				"内容">
+<!ENTITY		cookiepath.label																				"路径">
+<!ENTITY		cookieexpire.label																			"过期时间">
+<!ENTITY		cookieexpired																						"此cookie已过期">
+<!ENTITY		cookieexpire.progress																		"将在 # 后过期">
+<!ENTITY		cookieexpire.progress.life															"#&#37; 剩余寿命">
+<!ENTITY		cookieexpire.years																			"年">
+<!ENTITY		cookieexpire.year																				"年">
+<!ENTITY		cookieexpire.days																				"日">
+<!ENTITY		cookieexpire.day																				"日">
+<!ENTITY		cookieexpire.hours																			"时">
+<!ENTITY		cookieexpire.hour																				"时">
+<!ENTITY		cookieexpire.minutes																		"分">
+<!ENTITY		cookieexpire.minute																			"分">
+<!ENTITY		cookieexpire.seconds																		"秒">
+<!ENTITY		cookieexpire.second																			"秒">
+<!ENTITY		cookieisSecure.label																		"发送条件">
+<!ENTITY		cookiecreationTime.label																"创建时间">
+<!ENTITY		cookielastAccessed.label																"最后生效">
+<!ENTITY		cookieisHttpOnly.label																	"仅Http">
+<!ENTITY		cookiepolicy.label																			"策略">
+<!ENTITY		cookiestatus.label																			"统计">
+
+<!ENTITY		datepickerwindow.title.label														"日期选择器">
+<!ENTITY		datepickerwindow.button.label														"日历">
+
+<!ENTITY		props.policy.label																			"策略:">
+<!ENTITY		props.status.label																			"统计:">
+<!ENTITY		props.lastAccessed.label																"最后生效:">
+<!ENTITY		props.isHttpOnly.label																	"仅Http:">
+<!ENTITY		props.creationTime.label																"创建时间:">
+
+<!ENTITY		props.name.accesskey																		"M">
+<!ENTITY		props.value.accesskey																		"N">
+<!ENTITY		props.domain.accesskey																	"O">
+<!ENTITY		props.path.accesskey																		"H">
+<!ENTITY		props.secure.accesskey																	"F">
+<!ENTITY		props.expires.accesskey																	"X">
+<!ENTITY		props.policy.accesskey																	"I">
+<!ENTITY		props.status.accesskey																	"U">
+<!ENTITY		props.lastAccessed.accesskey														"S">
+<!ENTITY		props.isHttpOnly.accesskey															"Y">
+<!ENTITY		props.creationTime.accesskey														"R">
+<!ENTITY		props.isProtected.accesskey															"T">
+
+<!ENTITY		infoRow.select																					"选择">
+<!ENTITY		infoRow.copy																						"复制到剪贴板">
+<!ENTITY		infoRow.move.up																					"上移">
+<!ENTITY		infoRow.move.down																				"下移">
+<!ENTITY		infoRow.reset																						"重置信息列次序">
+
+<!ENTITY		cookieculler.protect																		"保护">
+<!ENTITY		cookieculler.protect.accesskey													"P">
+<!ENTITY		cookieculler.unprotect																	"未保护">
+<!ENTITY		cookieculler.unprotect.accesskey												"U">
+<!ENTITY		cookieculler.isProtected																"受保护">
+<!ENTITY		cookieculler.open																				"打开Cookie Culler窗口">
+<!ENTITY		cookieculler.open.accesskey															"L">
+
+<!ENTITY		menu.file																								"文件">
+<!ENTITY		menu.file.accesskey																			"F">
+<!ENTITY		menu.edit																								"编辑">
+<!ENTITY		menu.edit.accesskey																			"E">
+<!ENTITY		menu.view																								"查看">
+<!ENTITY		menu.view.accesskey																			"V">
+<!ENTITY		menu.view.tree																					"查看详情">
+<!ENTITY		menu.view.tree.accesskey																"T">
+<!ENTITY		menu.view.info																					"Cookie信息">
+<!ENTITY		menu.view.info.accesskey																"I">
+<!ENTITY		menu.tools																							"工具">
+<!ENTITY		menu.tools.accesskey																		"T">
+<!ENTITY		menu.help																								"帮助">
+<!ENTITY		menu.help.accesskey																			"H">
+<!ENTITY		menu.about																							"关于">
+<!ENTITY		menu.about.accesskey																		"A">
+<!ENTITY		menu.expirecountdown.label															'过期倒计时'>
+<!ENTITY		menu.expireprogress.label																'过期时间进度条'>
+<!ENTITY		menu.expireprogress.info																'cookie&#39;的过期时间的可视化表示'>
+
+<!ENTITY		fields.note																							"启用此域可能影响性能。">
+<!ENTITY		columnSort.label																				"排序依据">
+<!ENTITY		columnSort.accesskey																		"S">
+<!ENTITY		restoreColumnOrder.label																"重置栏目次序">
+
+<!ENTITY		ascending																								"递增">
+<!ENTITY		descending																							"递减">
+
+<!ENTITY		password.incorrect																			"密码错误">
+
+<!ENTITY		options.topmost.label																		'总在上方'>
+<!ENTITY		options.topmost.info																		'此窗口将停留于其他 "常规" Firefox 窗口上方'>

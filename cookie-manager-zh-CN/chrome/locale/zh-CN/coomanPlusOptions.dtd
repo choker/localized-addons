@@ -1,0 +1,50 @@
+<!ENTITY	title.label										"Cookies Manager+ 选项">
+<!ENTITY	options.delconfirm.label			'显示 "确认删除"'>
+<!ENTITY	options.autoupdate.label			'自动刷新'>
+<!ENTITY	options.autoupdate.info				'若一个cookie改变则自动更新列表'>
+<!ENTITY	options.autofilter.label			'自动查找'>
+<!ENTITY	options.autofilter.info				'查询将在您输入时进行'>
+<!ENTITY	options.dateformat.label			'日期格式'>
+<!ENTITY	options.dateformat.info				'您可以改变日期的显示方式. 可使用右侧的模板或键入您的模板'>
+<!ENTITY	options.dateformat.moreinfo		'更多信息'>
+<!ENTITY	options.dateformat.presets		'预设日期格式'>
+<!ENTITY	options.simplehost.label			'排序中忽略次级域名:'>
+<!ENTITY	options.simplehost.no					'无'>
+<!ENTITY	options.simplehost.no.desc		'sub1.domain.com &#8800; domain.com'>
+<!ENTITY	options.simplehost.root				'所有'>
+<!ENTITY	options.simplehost.root.desc	'sub2.sub1.domain.com = domain.com'>
+<!ENTITY	options.simplehost.www				'仅 www'>
+<!ENTITY	options.simplehost.www.desc		'www.domain.com = domain.com'>
+<!ENTITY	options.simplehost.info				'以www开头的路径将会按照没有它排序，所以example.com和www.example.当按路径排序时将总在一起显示(Site)'>
+<!ENTITY	options.tab.general						'通用'>
+<!ENTITY	options.tab.view							'Cookie信息'>
+<!ENTITY	options.tab.export						'导出'>
+<!ENTITY	options.tab.changes						'更新历史'>
+<!ENTITY	option.export.clipboard.template '复制至剪贴板的模板'>
+<!ENTITY	option.export.tab.clipboard 	'剪贴板'>
+<!ENTITY	option.export.tab.file 				'文件'>
+<!ENTITY	option.export.tab.backup			'备份'>
+<!ENTITY	option.export.file.template 	'保存至文件的模板'>
+<!ENTITY	option.export.backup					'启用备份加密'>
+<!ENTITY	option.export.backup.info			'在您每次创建备份时将会被要求输入密码。
+此密码将会用于加密备份数据
+从备份恢复cookies时您需要键入密码。'>
+<!ENTITY	saveprefs.label								"保存并关闭">
+<!ENTITY	justclose.label								"关闭但不保存">
+<!ENTITY	result												"结果">
+<!ENTITY	options.cookieculler.label		'启用Cookie Culler支持'>
+<!ENTITY	options.cookieculler.delete.label		'允许删除受保护的cookies'>
+<!ENTITY	reset													"重置为默认值">
+<!ENTITY	reset.accesskey								"R">
+<!ENTITY	backup.remove.password				"从备份文件移除密码">
+<!ENTITY	backup.notencrypted						"文件未加密">
+<!ENTITY	backup.decrypt.failed					"移除密码时出错">
+<!ENTITY	backup.decrypt.success				"密码被成功移除">
+<!ENTITY	restore.file.open.error				"打开备份文件时出错">
+<!ENTITY	backup.already.encrypted			"备份文件已加密">
+<!ENTITY	backup.password.remove				"从备份文件移除密码">
+<!ENTITY	backup.password.add						"向备份文件添加密码">
+<!ENTITY	backup.password.notset				"未设置密码">
+<!ENTITY	backup.password.set						"成功设置密码">
+<!ENTITY	export.filename								"默认文件名">
+<!ENTITY	export.filename.info					"留白以自动命名">

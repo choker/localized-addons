@@ -1,0 +1,38 @@
+<!ENTITY	CookieEditDlg.title.label			"Cookies Manager+">
+<!ENTITY	CookieEditDlg.titleEdit.label	"编辑 Cookie+">
+<!ENTITY	CookieEditDlg.save.label			"保存">
+<!ENTITY	CookieEditDlg.save.accesskey	"S">
+<!ENTITY	CookieEditDlg.saveNew.label		"另存为">
+<!ENTITY	CookieEditDlg.saveNew.accesskey "N">
+<!ENTITY	CookieEditDlg.close.label			"关闭">
+<!ENTITY	CookieEditDlg.close.accesskey	"C">
+<!ENTITY	CookieEditDlg.moreinfo.label	"更多信息">
+<!ENTITY	CookieEditor.warning.expired	"警告! 此 cookie 已过期">
+
+<!ENTITY	months.january.label					"一月">
+<!ENTITY	months.february.label					"二月">
+<!ENTITY	months.march.label						"三月">
+<!ENTITY	months.april.label						"四月">
+<!ENTITY	months.may.label							"五月">
+<!ENTITY	months.june.label							"六月">
+<!ENTITY	months.july.label							"七月">
+<!ENTITY	months.august.label						"八月">
+<!ENTITY	months.september.label				"九月">
+<!ENTITY	months.october.label					"十月">
+<!ENTITY	months.november.label					"十一月">
+<!ENTITY	months.december.label					"十二月">
+
+<!ENTITY	optoins.expire.session.label	"此段落末尾">
+<!ENTITY	optoins.expire.date.label			"日期">
+<!ENTITY	optoins.expire.date.months		"月份">
+<!ENTITY	optoins.expire.date.year			"年">
+<!ENTITY	optoins.expire.date.day				"日">
+<!ENTITY	optoins.expire.date.hours			"时">
+<!ENTITY	optoins.expire.date.minutes		"分">
+<!ENTITY	optoins.expire.date.seconds		"秒">
+<!ENTITY	optoins.expire.date.time			"时间">
+
+
+<!ENTITY	props.isHttpOnly.label				"仅Http:">
+<!ENTITY	props.isHttpOnly.yes					"是">
+<!ENTITY	props.isHttpOnly.no						"否">
